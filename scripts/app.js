@@ -6,7 +6,7 @@ define(["marionette", "router"], function (Marionette, AppRouter) {
     // configuration, setting up regions, etc ...
     MyApp.addRegions({
         navigation: "#navigation",
-        title: "#page-title",
+        orangeDescription: "#orange-description",
         page: "#page"
     });
 

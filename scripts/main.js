@@ -4,9 +4,11 @@ require.config({
         "jquery":  "lib/jquery",
         "underscore": "lib/underscore",
         "backbone": "lib/backbone",
-        "marionette": 'lib/backbone.marionette',
+        "radio": "lib/backbone.radio.min",
+        "marionette": 'lib/marionette',
         "templates": "../templates",
-        "text": "lib/text"
+        "text": "lib/text",
+        "vent": "vent"
     },
     shim: {
         underscore: {
@@ -15,6 +17,10 @@ require.config({
         backbone: {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone'
+        },
+        radio: {
+            deps: ['underscore', 'backbone', 'jquery'],
+            exports: 'Radio'
         },
         marionette: {
             deps: ['jquery', 'underscore', 'backbone'],

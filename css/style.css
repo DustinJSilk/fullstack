@@ -1,0 +1,528 @@
+/* ------------------------------------------------
+	Fonts
+   --------------------------------------------- */
+
+@font-face {
+    font-family: 'latolight';
+    src: url('fonts/lato-lig-webfont.eot');
+    src: url('fonts/lato-lig-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-lig-webfont.woff') format('woff'),
+         url('fonts/lato-lig-webfont.ttf') format('truetype'),
+         url('fonts/lato-lig-webfont.svg#latolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoregular';
+    src: url('fonts/lato-reg-webfont.eot');
+    src: url('fonts/lato-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-reg-webfont.woff') format('woff'),
+         url('fonts/lato-reg-webfont.ttf') format('truetype'),
+         url('fonts/lato-reg-webfont.svg#latoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latohairline';
+    src: url('fonts/lato-hai-webfont.eot');
+    src: url('fonts/lato-hai-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-hai-webfont.woff') format('woff'),
+         url('fonts/lato-hai-webfont.ttf') format('truetype'),
+         url('fonts/lato-hai-webfont.svg#latohairline') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* ------------------------------------------------
+	Normalizing and initializing
+   --------------------------------------------- */
+
+html {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.clearfix {
+    display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+    display: block;
+}
+ 
+* html .clearfix {
+    height: 1%;
+}
+
+
+
+/* ------------------------------------------------
+	Colors, Backgrounds, Titles, Fonts ECT
+   --------------------------------------------- */
+
+section.white {
+	background-color: #fff;
+}
+
+section.light-grey {
+	background-color: #f5f5f5;
+}
+
+section.orange {
+	background-color: #e87649;
+}
+
+
+section.orange h1,
+section.orange h2,
+section.orange p {
+	color: #fff;
+}
+
+
+/* ------------------------------------------------
+	Global styles
+   --------------------------------------------- */
+
+footer {
+	background-color: #9ea2a5;
+	width: 100%;
+	height: 80px;
+	-webkit-transition: height 0.3s ease;
+	        transition: height 0.3s ease;
+}
+
+section {
+	width: 100%;
+	padding: 120px 20px;
+	text-align: center;
+}
+
+section h1,
+section h2 {
+	padding: 0 0 0 0;
+}
+
+ul {
+
+}
+
+ul li {
+
+}
+
+h1 {
+	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 2.5em;
+	color: #fff;
+	font-weight: normal;
+}
+
+h2 {
+	font-family: "latohairline", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 2.5em;
+	color: #979797;
+	font-weight: normal;
+}
+
+h3 {
+	font-family: "latohairline", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.563em;
+	color: #979797;
+	font-weight: normal;
+}
+
+p {
+	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.563em;
+	color: #979797;
+}
+
+.content {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+
+
+/* ------------------------------------------------
+	Navigation
+   --------------------------------------------- */
+
+#navigation {
+}
+
+#navigation .logo {
+	height: 80px;
+	width: 235px;
+	float: left;
+	margin: 12px 0;
+	opacity: 1;
+}
+
+#navigation .logo img {
+	max-width: 100px;
+}
+
+#navigation .nav-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	text-align: justify;
+	max-width: 825px;
+	margin: 0 auto;
+}
+
+#navigation .nav-list:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+#navigation .nav-list li {
+	padding: 45px 0 0;
+	margin: 0;
+	display: inline-block;
+}
+
+#navigation .nav-list li a {
+	color: #fff;
+	font-family: "latoregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	cursor: pointer;
+}
+
+#navigation #nav-selector {
+	position: absolute;
+	top: -3px;
+	left: 0;
+	width: 100px;
+	height: 3px;
+	background-color: #e87649;
+	transition: top 0.4s ease;
+}
+
+#navigation #nav-selector.show {
+	top: 0px;
+	transition: width 0.5s ease, left 0.5s ease, top 0.4s ease;
+}
+
+#navigation .nav-welcome {
+	width: 100%;
+	max-width: 650px;
+	margin: 0 auto;
+	padding: 140px 20px 108px;
+}
+
+#navigation .nav-welcome img {
+	margin: 0 auto;
+	display: block;
+}
+
+#navigation .nav-welcome p {
+	text-align: center;
+	color: #fff;
+	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 30px;
+	font-size: 25px;
+	margin: 60px 0 0;
+}
+
+
+/* 
+	Home navigation VS other navigation - transitions
+*/
+
+#navigation.home {
+	background-image: url('../img/capetown.jpg');
+	background-position: center center;
+	background-size: cover;
+}
+
+#navigation.home .logo {
+	overflow: hidden;
+	width: 0;
+}
+
+#navigation.home .logo img {
+	opacity: 0;
+}
+
+
+
+/* ------------------------------------------------
+	Orange Page Title
+   --------------------------------------------- */
+
+#orange-description {
+	width: 100%;
+	height: 0px;
+	background-color: #e87649;
+	overflow: hidden;
+	text-align: center;
+	transition: height 0.8s ease;
+}
+
+.orange-description-text {
+	overflow: auto;
+	margin-left: 0;
+	margin-right: 0;
+	opacity: 0;
+	display: inline-block;
+	transition: opacity 0.5s ease;
+}
+
+
+/* Animate In */
+.orange-description-text.in {
+    -webkit-animation: orangeIn 0.3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards; 
+}
+
+@-webkit-keyframes orangeIn {
+    0% {
+    	opacity: 0;
+    	-webkit-transform: translateX(100px);
+    }
+    100% {
+    	opacity: 1;
+    	-webkit-transform: translateX(0px);
+    }
+}
+
+/* Animate Out */
+.orange-description-text.out {
+    -webkit-animation: orangeOut 0.3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards; 
+}
+
+@-webkit-keyframes orangeOut {
+    0% {
+    	opacity: 1;
+    	-webkit-transform: translateX(0px);
+    }
+    100% {
+    	opacity: 0;
+    	-webkit-transform: translateX(-100px);
+    }
+}
+
+
+/* ------------------------------------------------
+	Home
+   --------------------------------------------- */
+
+
+/* About */
+
+.about-flow {
+	position: relative;
+	width: 850px;
+	margin: 0 auto;
+}
+
+.about-flow > div {
+	position: relative;
+}
+
+.flow-left {
+	float: left;
+}
+
+.flow-right {
+	float: left;
+}
+
+.flow-center {
+	float: left;
+}
+
+.flow-center .center-icon {
+	height: 80px;
+	width: 700px;
+	background-image: url('../img/about-icon-middle.jpg');
+	background-repeat-y: no-repeat;
+	background-repeat-x: repeat;
+}
+
+.about-flow .copy {
+	position: absolute;
+	width: 280px;
+	left: 50%;
+	margin-left: -140px;
+}
+
+.about-flow .copy h3 {
+
+}
+
+.about-flow .copy p {
+	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+}
+
+
+/* Services */
+
+.services {
+	width: 100%;
+}
+
+.services .block {
+	display: block;
+	width: 50%;
+	padding: 20px;
+	float: left;
+}
+
+.services .block.odd {padding-left: 0;}
+.services .block.even {padding-right: 0;}
+
+.services .block > div {
+	width: 100%;
+	height: 100%;
+	background-color: #ebebeb;
+	display: block;
+	cursor: pointer;
+	position: relative;
+}
+
+.services .block img {
+	margin: 55px auto 40px;
+}
+
+.services .block h3 {
+	margin: 0 0 45px;
+	font-size: 33px;
+}
+
+.services .block .orange {
+	background-color: #e87649;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 0;
+	transition: opacity 0.3s ease;
+}
+
+.services .block .hover-text {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+}
+
+.services .block .hover-text h3 {
+	color: white;
+	margin: 30px auto 17px;
+	padding: 0 0 15px 0;
+	border-bottom: 2px solid white;
+	display: inline-block;	
+	font-family: "latoregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+}
+
+.services .block .hover-text p {
+	color: white;	
+	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	margin: 0;
+	letter-spacing: 0.4px;
+	line-height: 22px;
+	padding: 0 40px;
+}
+
+.services .block .hover-text a {
+	border-radius: 7px;
+	border: 1px solid #fff;
+	display: inline-block;
+	width: auto;
+	margin: 20px auto;
+	padding: 8px 50px;
+	color: white;
+	text-decoration: none;
+}
+
+.services .block > div:hover .hover-text {display: block;}
+.services .block > div:hover .orange {opacity: 1;}
+
+
+/* Clients */
+
+.clients .logos{
+	width: 100%;
+	padding: 0 50px;
+}
+
+.client {
+	width: 33%;
+	display: inline-block;
+}
+
+.client img {
+	max-width: 100%;
+}
+
+.clients p {
+	font-size: 25px;
+	line-height: 34px;
+	font-family: "latohairline", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 45px 0 0 0;
+}
+
+
+/* Home contact */
+
+.home-contact a {
+	padding: 10px 70px;
+	border: 1px solid #fff;
+	border-radius: 7px;
+	font-size: 23px;
+	color: white;
+	text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
