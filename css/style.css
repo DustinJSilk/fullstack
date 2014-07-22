@@ -464,6 +464,7 @@ p {
 .about-flow .copy p {
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 18px;
+	line-height: 22px;
 }
 
 .about-flow .mobile-only {
@@ -567,6 +568,7 @@ p {
 .clients .logos{
 	width: 100%;
 	padding: 0 50px;
+	overflow: auto;
 }
 
 .client {
@@ -580,7 +582,7 @@ p {
 
 .clients p {
 	font-size: 25px;
-	line-height: 34px;
+	line-height: 30px;
 	font-family: "latohairline", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 45px 0 0 0;
 }
@@ -1225,6 +1227,12 @@ footer .social-links .skype {
 		width: 410px;
 	}
 
+	.client {
+		width: 50%;
+		float: left;
+		padding: 0 20px;
+	}
+
 }
 
 
@@ -1245,6 +1253,10 @@ footer .social-links .skype {
 	.about-flow .copy {
 		width: 160px;
 		margin-left: -80px;
+	}
+
+	.clients .logos {
+		padding: 0;
 	}
 
 }
@@ -1291,7 +1303,7 @@ footer .social-links .skype {
 
 	.about-flow .copy p {
 		margin: 10px 0 0 0;
-		font-size: 16px;
+		font-size: 18px;
 	}
 
 	
@@ -1338,6 +1350,11 @@ footer .social-links .skype {
 	}
 
 	
+
+}
+
+@media only screen and (max-width: 480px) {
+
 
 }
 
