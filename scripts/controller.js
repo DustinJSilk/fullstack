@@ -15,8 +15,8 @@ define(["app"], function (App) {
         },
 
         services: function () {
-            require([ "app", "views/about"], function (App, AboutView) {
-                App.page.show(new AboutView())
+            require([ "app", "views/services"], function (App, ServicesView) {
+                App.page.show(new ServicesView())
             })
         },
 
@@ -27,20 +27,20 @@ define(["app"], function (App) {
         },
 
         products: function () {
-            require([ "app", "views/about"], function (App, AboutView) {
-                App.page.show(new AboutView())
+            require([ "app", "views/products"], function (App, ProductsView) {
+                App.page.show(new ProductsView())
             })
         },
 
         caseStudies: function () {
-            require([ "app", "views/about"], function (App, AboutView) {
-                App.page.show(new AboutView())
+            require([ "app", "views/case-studies"], function (App, CaseStudiesView) {
+                App.page.show(new CaseStudiesView())
             })
         },
 
         fullstackEvents: function () {
-            require([ "app", "views/about"], function (App, AboutView) {
-                App.page.show(new AboutView())
+            require([ "app", "views/events"], function (App, EventsView) {
+                App.page.show(new EventsView())
             })
         },
 
@@ -51,8 +51,8 @@ define(["app"], function (App) {
         },
 
         contact: function () {
-            require([ "app", "views/about"], function (App, AboutView) {
-                App.page.show(new AboutView())
+            require([ "app", "views/contact"], function (App, ContactView) {
+                App.page.show(new ContactView())
             })
         },
 

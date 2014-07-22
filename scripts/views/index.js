@@ -1,8 +1,9 @@
 define([
 	"app",
 	"marionette",
-	"text!templates/index.html"
-	], function (App, Marionette, IndexTemplate) {
+	"text!templates/index.html",
+	"vent"
+	], function (App, Marionette, IndexTemplate, Vent) {
 
 
 	var IndexView = Marionette.ItemView.extend({
@@ -18,8 +19,7 @@ define([
 		},
 
 		events: {
-			"click #link-home": 		"home",
-			"hover #link-about": 		"aboutFunc",
+			"click #contact-us-link": 		"contactUs",
 		},
 
 		initialize: function () {
@@ -52,8 +52,15 @@ define([
 				$('.services .block').height(tallestBlock);
 			
 			});
+		},
 
-
+		contactUs: function () {
+			//animate to top then navigate
+    		$('html,body').animate({ scrollTop: 0 }, 800, function(){
+    			setTimeout(function(){
+    				Vent.trigger("GoTo", "#!/contact", {trigger: true});
+    			}, 300)
+        	});
 		}
 
 	});

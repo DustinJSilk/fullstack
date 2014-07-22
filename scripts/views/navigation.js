@@ -19,10 +19,10 @@ define([
 		},
 
 		events: {
-			"click #link-home": 				"home",
+			"click #link-index": 				"index",
 			"click #link-about": 				"about",
 			"click #link-services": 			"services",
-			"click #link-clients": 				"clients",
+			//"click #link-clients": 				"clients",
 			"click #link-products": 			"products",
 			"click #link-case-studies": 		"caseStudies",
 			"click #link-fullstack-events": 	"fullstackEvents",
@@ -32,6 +32,14 @@ define([
 
 		initialize: function () {
 			Vent.on('GoTo', this.listenToEvents, this);
+
+			//Always remember previous route - for animating to/from home
+			this.previousRoute = window.location.hash.replace("#!/", "").toLowerCase();
+		    if (this.previousRoute.length < 1 ) this.previousRoute = "index";
+
+		    if (this.previousRoute === "index") {
+		    	$("#navigation").addClass("home")
+		    }
 		},
 
 		onShow: function () {
@@ -41,15 +49,29 @@ define([
 			setTimeout(function(){
 				view.initiateSelectorBar();
 			}, 200);
+
+			this.resizeReposition();
 		},
 
 
 		//Listening for route changes to animate the orange bar and home view
 		listenToEvents: function (route, args) {
-		    var routeID = route.replace("#!/", "").toLowerCase();
-		    if (routeID.length < 1 ) routeID = "home";
 
-		    this.positionSelectorBar(routeID);
+			//Extract route
+		    var routeID = route.replace("#!/", "").toLowerCase();
+		    if (routeID.length < 1 ) routeID = "index";
+
+		    //animate navigation if going to/from home
+		    if (routeID === "index") {
+		    	this.navigateToHome();
+		    } else if (routeID !== "index" && this.previousRoute === "index") {
+		    	this.navigateFromHome();
+		    } else {
+		    	this.positionSelectorBar(routeID);
+		    }
+
+		    this.previousRoute = routeID;
+
 		},
 
 
@@ -64,7 +86,7 @@ define([
 
 			//resize and position correctly before showing
 			var route = window.location.hash.replace("#!/", "").toLowerCase();
-		    if (route.length < 1 ) route = "home";
+		    if (route.length < 1 ) route = "index";
 			view.positionSelectorBar(route);
 
 
@@ -86,7 +108,23 @@ define([
 		    });
 		},
 
-		home: function () {
+		resizeReposition: function () {
+			var view = this;
+
+			$(window).bind('resize.nav-bar', function () {
+				view.positionSelectorBar(view.previousRoute);
+			});
+		},
+
+		navigateToHome: function () {
+			$("#navigation").addClass("home");
+		},
+
+		navigateFromHome: function () {
+			$("#navigation").removeClass("home");
+		},
+
+		index: function () {
 			Vent.trigger("GoTo", "#!/", {trigger: true});
 		},
 

@@ -33,7 +33,7 @@ define(["marionette", "controller", "vent" ], function (Marionette, Controller, 
 		},
 
         GoTo: function (route, args) {
-            this.navigate(route, args);
+        	this.navigate(route, args);
         }
 
 	});
