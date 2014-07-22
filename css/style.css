@@ -466,6 +466,10 @@ p {
 	font-size: 18px;
 }
 
+.about-flow .mobile-only {
+	display: none;
+}
+
 
 /* Services */
 
@@ -1243,6 +1247,54 @@ footer .social-links .skype {
 		margin-left: -80px;
 	}
 
+}
+
+@media only screen and (max-width: 620px) {
+
+	.about-flow {
+		width: 100%;
+	}
+
+	.about-flow > div {
+		width: 100%;
+		float: left;
+		height: 100%;
+		margin: 20px 0;
+	}
+
+	.about-flow img {
+		float: left;
+		max-width: 60px;
+	}
+
+	.about-flow .center-icon {
+		display: none;
+	}
+
+	.about-flow .mobile-only {
+		display: block;
+	}
+
+	.about-flow > div .copy {
+		position: relative;
+		float: left;
+		left: 0;
+		margin-left: 0px;
+		padding-left: 15px;
+		width: calc(100% - 80px);
+		text-align: left;
+	}
+
+	.about-flow > div .copy h3 {
+		margin: 0;
+	}
+
+	.about-flow .copy p {
+		margin: 10px 0 0 0;
+		font-size: 16px;
+	}
+
+	
 }
 
 @media only screen and (max-width: 600px) {

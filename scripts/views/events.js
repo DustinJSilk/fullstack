@@ -22,6 +22,14 @@ define([
 
 		initialize: function () {
 			
+		},
+
+		onRemove: function () {
+			this.$el.fadeOut(1000, function () {
+				return true;
+			})
+
+			return false;
 		}
 
 	});

@@ -28,6 +28,7 @@ define([
 			"click #link-fullstack-events": 	"fullstackEvents",
 			"click #link-careers": 				"careers",
 			"click #link-contact": 				"contact",
+			"click #nav-logo img": 				"index"
 		},
 
 		initialize: function () {
