@@ -28,7 +28,8 @@ define([
 			"click #link-fullstack-events": 	"fullstackEvents",
 			"click #link-careers": 				"careers",
 			"click #link-contact": 				"contact",
-			"click #nav-logo img": 				"index"
+			"click #nav-logo img": 				"index",
+			"click #mobile-hamburger": 			"mobileMenu"
 		},
 
 		initialize: function () {
@@ -115,6 +116,20 @@ define([
 			$(window).bind('resize.nav-bar', function () {
 				view.positionSelectorBar(view.previousRoute);
 			});
+		},
+
+		mobileMenu: function () {
+			$('body').addClass("menu show-menu");
+			setTimeout(function(){
+				$('.perspective-container').bind("click", function(){
+					$('body').removeClass("show-menu");
+					setTimeout(function(){
+						$('body').removeClass("menu");
+					}, 400)
+					$('.perspective-container').unbind("click");
+				});
+			})
+			
 		},
 
 		navigateToHome: function () {

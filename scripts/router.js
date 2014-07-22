@@ -33,6 +33,7 @@ define(["marionette", "controller", "vent" ], function (Marionette, Controller, 
 		},
 
         GoTo: function (route, args) {
+        	$('body').removeClass("show-menu");
         	this.navigate(route, args);
         }
 
