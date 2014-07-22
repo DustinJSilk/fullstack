@@ -1204,7 +1204,7 @@ footer .social-links .skype {
 @media only screen and (max-width: 768px) {
 	
 	section {
-		padding: 60px 20px;
+		padding: 60px 5.5%;
 	}
 
 	.contact-details {
@@ -1231,6 +1231,17 @@ footer .social-links .skype {
 		width: 50%;
 		float: left;
 		padding: 0 20px;
+	}
+
+	.form-input.first {
+		padding-left: 0;
+	}
+	.form-input.third {
+		padding-right: 0;
+	}
+	.form-submit,
+	.form-textarea {
+		padding: 15px 0;
 	}
 
 }
@@ -1312,24 +1323,47 @@ footer .social-links .skype {
 @media only screen and (max-width: 600px) {
 	
 	section {
-		padding: 40px 20px;
+		padding: 40px 5.5%;
 	}
 
 	.contact-details {
-		margin: 0 0 00px;
+		margin: 0 0 30px;
 	}
 
 	.form-input {
 		width: 100%;
-		padding: 10px;
+		padding: 10px 0;
 	}
 
 	.form-textarea {
-		padding: 10px;
+		padding: 10px 0;
 	}
 
 	.form-submit {
-		padding: 10px;
+		padding: 10px 0;
+	}
+	
+	.contact-type {
+		width: 100%;
+		padding: 20px 0;
+	}
+
+	.contact-type img {
+		float: left;
+	}
+
+	.contact-type h3 {
+		margin: 0;
+	}
+
+	.contact-type p {
+		margin: 8px 0 0 0;
+	}
+
+	.contact-type p,
+	.contact-type h3 {
+		padding-left: 80px;
+		text-align: left;
 	}
 
 	.map {
@@ -1348,7 +1382,6 @@ footer .social-links .skype {
 		float: none;
 		margin: 0 auto;
 	}
-
 	
 
 }
