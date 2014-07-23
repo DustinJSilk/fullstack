@@ -25,7 +25,7 @@ define([
 			//"click #link-clients": 				"clients",
 			"click #link-products": 			"products",
 			"click #link-case-studies": 		"caseStudies",
-			"click #link-fullstack-events": 	"fullstackEvents",
+			"click #link-events": 				"fullstackEvents",
 			"click #link-careers": 				"careers",
 			"click #link-contact": 				"contact",
 			"click #nav-logo img": 				"index",
@@ -60,7 +60,7 @@ define([
 		listenToEvents: function (route, args) {
 
 			//Extract route
-		    var routeID = route.replace("#!/", "").toLowerCase();
+		    var routeID = route.split("/")[1].toLowerCase();
 		    if (routeID.length < 1 ) routeID = "index";
 
 		    //animate navigation if going to/from home
@@ -69,6 +69,7 @@ define([
 		    } else if (routeID !== "index" && this.previousRoute === "index") {
 		    	this.navigateFromHome();
 		    } else {
+		    	console.log(routeID)
 		    	this.positionSelectorBar(routeID);
 		    }
 
@@ -87,7 +88,8 @@ define([
 
 
 			//resize and position correctly before showing
-			var route = window.location.hash.replace("#!/", "").toLowerCase();
+			var route = window.location.hash.split("/")[1].toLowerCase();
+			console.log(route)
 		    if (route.length < 1 ) route = "index";
 			view.positionSelectorBar(route);
 
@@ -101,6 +103,7 @@ define([
 
 
 		positionSelectorBar: function (routeID) {
+			console.log(routeID)
 			var leftPosition = $("#link-" + routeID).parent().position().left;
 		    var width = $("#link-" + routeID).parent().width();
 		    
@@ -186,7 +189,7 @@ define([
 		},
 
 		fullstackEvents: function () {
-			Vent.trigger("GoTo", "#!/fullstack-events", {trigger: true});
+			Vent.trigger("GoTo", "#!/events", {trigger: true});
 		},
 
 		careers: function () {

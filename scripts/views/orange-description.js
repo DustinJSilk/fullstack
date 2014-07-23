@@ -22,7 +22,7 @@ define([
 
 		initialize: function () {
 			Vent.on('GoTo', this.listenToEvents, this);
-			this.currentView = window.location.hash.replace("#!/", "").toLowerCase().trim();
+			this.currentView = window.location.hash.split("/")[1].toLowerCase().trim();
 		},
 
 		onShow: function () {
@@ -48,7 +48,7 @@ define([
 		listenToEvents: function (route, args) {
 
 			//Get the new route
-		    var routeID = route.replace("#!/", "").toLowerCase().trim();
+		    var routeID = route.split("/")[1].toLowerCase();
 		    if (routeID.length < 1 ) routeID = "index";
 		    
 
@@ -174,7 +174,7 @@ define([
 		    		h2 = "We provide data products and services<br />and this is how we work/our process";
 		    		break;
 
-		    	case "fullstack-events": 
+		    	case "events": 
 		    		h1 = "Events";
 		    		break;
 

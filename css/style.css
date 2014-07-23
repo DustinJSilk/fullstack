@@ -59,7 +59,7 @@ body {
 	-moz-box-sizing: border-box;
 }
 
-h1 {
+#orange-description h1 {
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
 	-ms-font-smoothing: antialiased;
@@ -906,6 +906,16 @@ a.apply {
 	width: 100%;
 }
 
+#events .content {
+	overflow: hidden;
+}
+
+.events {
+	width: 100%;
+	float: left;
+}
+
+
 #events .block {
 	display: block;
 	width: 50%;
@@ -913,15 +923,14 @@ a.apply {
 	float: left;
 }
 
-#events .block.odd {padding-left: 0;}
-#events .block.even {padding-right: 0;}
+#events > div .block:nth-child(odd) {padding-left: 0;}
+#events > div .block:nth-child(even) {padding-right: 0;}
 
 #events .block > div {
 	width: 100%;
 	height: 100%;
 	background-color: #ebebeb;
 	display: block;
-	cursor: pointer;
 	position: relative;
 	overflow: auto;
 }
@@ -953,14 +962,14 @@ a.apply {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	min-height: 100%;
 	z-index: 5;
 }
 
 #events .block .hover-text h3 {
 	color: white;
-	margin: 30px auto 17px;
-	padding: 0 0 15px 0;
+	margin: 30px 20px 17px;
+	padding: 0 0 15px;
 	border-bottom: 2px solid white;
 	display: inline-block;	
 	font-family: "latoregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -974,7 +983,7 @@ a.apply {
 	margin: 0;
 	letter-spacing: 0.4px;
 	line-height: 22px;
-	padding: 0 40px;
+	padding: 0 20px;
 }
 
 #events .block .hover-text a {
@@ -986,6 +995,7 @@ a.apply {
 	padding: 8px 50px;
 	color: white;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 #events .block > div:hover .hover-text {display: block;}
@@ -1013,6 +1023,140 @@ a.apply {
 	font-size: 16px;
 }
 
+/* ------------------------------------------------
+	Single event page
+   --------------------------------------------- */
+
+#event h1 {
+	text-align: left;
+	color: #e87649;
+	margin-top: 0;
+	font-family: "latohairline", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 2.5em;
+	font-weight: normal;
+}
+
+#event p {
+	color: #929090;
+	font-size: 22px;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	text-align: left;
+	line-height: 30px;
+	margin-bottom: 0;
+}
+
+#event .event-single-date {
+	width: 100%;
+	overflow: auto;
+	margin: 40px 0 0;
+}
+
+#event .event-single-date img {
+	float: left;
+}
+
+#event .event-single-date p {
+	width: 100%;
+	padding-left: 91px;
+	font-size: 20px;
+	margin: 13px 0 0 0;
+	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+
+/* ------------------------------------------------
+	Case studies
+   --------------------------------------------- */
+
+.case-study {
+	overflow: auto;
+}
+
+.case-study .content {
+}
+
+/*.case-study.odd .content {float: left;}
+.case-study.even .content {float: right;}*/
+.case-study.odd .content,
+.case-study.odd .content > div {text-align: left;}
+.case-study.even .content,
+.case-study.even .content > div {text-align: right;}
+
+.case-study .content > div {
+	width: 100%;
+	max-width: 600px;
+	display: inline-block;
+}
+
+.case-study .content .logo {margin: 0 0 30px 0;}
+.case-study .content .logo img {
+	max-width: 100%;
+	display: inline-block;
+}
+
+.case-study .content .title h2 {
+	text-align: left;
+	color: #e87649;
+	margin-top: 0;
+	font-family: "latohairline", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 2.5em;
+	font-weight: normal;
+	margin: 0 0 25px;
+}
+.case-study.even .content .title h2 {text-align: right;}
+
+.case-study .content .copy {margin: 0 0 30px 0;}
+.case-study .content .copy p {
+	color: #929090;
+	font-size: 22px;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	text-align: left;
+	line-height: 30px;
+	margin-bottom: 0;
+	letter-spacing: 1px;
+	max-width: 600px;
+}
+.case-study.even .content .copy p {text-align: right;}
+
+.case-study .content .detail {
+	text-align: left;
+	margin: 0 0 30px;
+}
+.case-study.even .content .detail {text-align: right;}
+
+.case-study .content .detail img {
+	vertical-align: middle;  
+}
+
+.case-study .content .detail p {
+	display:inline-block; 
+	vertical-align:middle;
+	text-align: left;
+	margin: 0;
+}
+.case-study.even .content .detail p {text-align: right;}
+
+.case-study .content .detail strong {
+	color: #5c5c5c;
+	font-size: 18px;
+	font-weight: normal;
+	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+}
+
+.case-study .content .detail span {
+	font-size: 16px;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #777777;
+}
+
+.case-study .content .clause p {
+	font-size: 16px;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #777777;
+	margin: 0 0 20px;
+	max-width: 600px;
+}
 
 /* ------------------------------------------------
 	Footer
@@ -1146,14 +1290,20 @@ a.apply {
    color: #929090; 
 }
 
+.map.hide {
+	height: 0px;
+}
 
 .map {
-	height: 540px;
+	height: 500px;
 	background-color: #f5f5f5;
 	padding: 0;
 	background-size: cover;
 	background-position: center center;
 	background-image: url('../img/map.jpg');
+	-webkit-transition: height 1s ease;
+	-o-transition: height 1s ease;
+	transition: height 1s ease;
 }
 
 /* ------------------------------------------------
@@ -1374,6 +1524,39 @@ footer .social-links .skype {
 		padding: 0;
 	}
 
+	#events .block {
+		width: 100%;
+		padding: 15px 0;
+		height: auto!important;
+	}
+
+	#events > div .block .orange {
+		display: none;
+	}
+
+	#events .block .hover-text{
+		position: relative;
+		display: block;
+	}
+
+	#events div:not(.hover-text) h3 {
+		display: none;
+	}
+
+	#events .block .hover-text h3 {
+		color: #e87649;
+		border-bottom: 2px solid #e87649;
+	}
+
+	#events .block .hover-text p {
+		color: #e87649;
+	}
+
+	#events .block .hover-text a {
+		border: 1px solid #e87649;
+		color: #e87649;
+	}
+
 }
 
 @media only screen and (max-width: 620px) {
@@ -1472,11 +1655,6 @@ footer .social-links .skype {
 
 	.map {
 		height: 280px;
-	}
-
-	#events .block {
-		width: 100%;
-		padding: 15px 0;
 	}
 
 	.about-images {

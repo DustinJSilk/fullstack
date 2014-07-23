@@ -44,6 +44,12 @@ define(["app"], function (App) {
             })
         },
 
+        fullstackEvent: function (eventName) {
+            require([ "app", "views/event-single"], function (App, EventView) {
+                App.page.show(new EventView({eventName: eventName}));
+            })
+        },
+
         careers: function () {
             require([ "app", "views/careers"], function (App, CareersView) {
                 App.page.show(new CareersView())
