@@ -26,15 +26,16 @@ define(["marionette", "controller", "vent" ], function (Marionette, Controller, 
 			_.bindAll(this, "GoTo");
             Vent.bind("GoTo", this.GoTo);
 
-            require([ "app", "views/navigation", "views/orange-description"], function (App, NavigationView, OrangeDescriptionView) {
+            require([ "app", "views/navigation", "views/mobile-navigation", "views/orange-description"], function (App, NavigationView, MobileNavigationView, OrangeDescriptionView) {
                 App.navigation.show(new NavigationView());
+                App.mobileNavigation.show(new MobileNavigationView());
                 App.orangeDescription.show(new OrangeDescriptionView());
             })
 		},
 
         GoTo: function (route, args) {
-        	$('body').removeClass("show-menu");
-        	this.navigate(route, args);
+    		$('body').removeClass("menu");
+    		this.navigate(route, args);
         }
 
 	});

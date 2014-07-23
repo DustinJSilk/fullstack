@@ -119,17 +119,38 @@ define([
 		},
 
 		mobileMenu: function () {
+			var view = this;
+
+			//animate body out left
 			$('body').addClass("menu show-menu");
+			$('#mobile-navigation').show();
+
+			//then show menu list and allow close
 			setTimeout(function(){
-				$('.perspective-container').bind("click", function(){
-					$('body').removeClass("show-menu");
-					setTimeout(function(){
-						$('body').removeClass("menu");
-					}, 400)
-					$('.perspective-container').unbind("click");
-				});
-			})
+
+				view.animateInMobileMenu();
+
+				//hide on click
+				// $('.perspective-container').bind("click", function(){
+				// 	$('body').removeClass("show-menu");
+				// 	setTimeout(function(){
+				// 		$('body').removeClass("menu");
+				// 	}, 400)
+				// 	$('.perspective-container').unbind("click");
+				// });
+
+			}, 300)
 			
+		},
+
+		animateInMobileMenu: function () {
+			var list = $("#mobile-navigation").find("li");
+
+			$.each(list, function(i, el){
+			    setTimeout(function(){
+			        $(el).addClass("show");
+			    },( i * 50 ));
+			});
 		},
 
 		navigateToHome: function () {
