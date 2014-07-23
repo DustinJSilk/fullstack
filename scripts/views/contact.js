@@ -1,8 +1,9 @@
 define([
 	"app",
 	"marionette",
-	"text!templates/contact.html"
-	], function (App, Marionette, ContactTemplate) {
+	"text!templates/contact.html",
+	"vent"
+	], function (App, Marionette, ContactTemplate, Vent) {
 
 	var ContactView = Marionette.ItemView.extend({
 
@@ -21,7 +22,7 @@ define([
 		},
 
 		initialize: function () {
-			
+			Vent.bind("RemoveView", this.removeView);
 		},
 
 		onShow: function () {
@@ -29,11 +30,11 @@ define([
 
 			setTimeout(function(){
 				view.showContactTypes();
-			}, 400)
+			}, 100)
 
 			setTimeout(function(){
 				view.showContactForm();
-			}, 1000)
+			}, 700)
 
 		},
 
@@ -47,6 +48,13 @@ define([
 
 		showContactForm: function () {
 			$(".contact-form").addClass("show");
+		},
+
+		removeView: function () {
+			$("#contact .content").addClass("close-view");
+			setTimeout(function(){
+				Vent.trigger("ViewOut");
+			}, 600)
 		}
 
 	});

@@ -27,6 +27,9 @@ define(["marionette", "controller", "vent" ], function (Marionette, Controller, 
 			_.bindAll(this, "GoTo");
             Vent.bind("GoTo", this.GoTo);
 
+            _.bindAll(this, "ViewOut");
+            Vent.bind("ViewOut", this.ViewOut);
+
             require([ "app", "views/navigation", "views/mobile-navigation", "views/orange-description"], function (App, NavigationView, MobileNavigationView, OrangeDescriptionView) {
                 App.navigation.show(new NavigationView());
                 App.mobileNavigation.show(new MobileNavigationView());
@@ -36,8 +39,15 @@ define(["marionette", "controller", "vent" ], function (Marionette, Controller, 
 
         GoTo: function (route, args) {
     		$('body').removeClass("menu");
-    		this.navigate(route, args);
+    		this.route = route;
+    		this.args = args;
+    		Vent.trigger("RemoveView");
+        },
+
+        ViewOut: function () {
+        	this.navigate(this.route, this.args);
         }
+
 
 	});
 
