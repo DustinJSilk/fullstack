@@ -31,7 +31,13 @@ define([
 		},
 
 		onShow: function () {
-			this.equalizeServices();
+			var view = this;
+			
+			view.equalizeServices();
+
+			setTimeout(function(){
+				view.checkScrolling();
+			}, 300)
 		},
 
 		//Make services blocks all have the same height
@@ -61,6 +67,40 @@ define([
     				Vent.trigger("GoTo", "#!/contact", {trigger: true});
     			}, 300)
         	});
+		},
+
+		checkScrolling: function () {
+			var view = this;
+
+			$(window).scroll(function(){
+				
+				for ( var i = 0; i < view.$('.content').length; i ++) {
+
+					var appearHeight = $(window).height() / 3;
+					var htmlHeight = $('html').height();
+					var windowHeight = $(window).height();
+					var windowScroll = $(window).scrollTop();
+					var offsetDistance = view.$('.content').eq(i).offset().top;
+					var isntVisible = !view.$('.content').eq(i).hasClass("shown");
+
+					if ( (windowScroll > (offsetDistance - windowHeight + appearHeight) &&  isntVisible) 
+						|| ( windowScroll + windowHeight > htmlHeight - 100) ) {
+						view.showContent(i);
+					}
+
+				}				
+				
+			});
+		},
+
+		showContent: function (contentNumber) {
+			var list = this.$(".content").eq(contentNumber).find(".fade-item");
+			$.each(list, function(i, el){
+			    setTimeout(function(){
+			       $(el).addClass("show");
+			    },( i * 100 ));
+			});
+			this.$(".content").eq(contentNumber).addClass("shown");
 		},
 
 		removeView: function () {

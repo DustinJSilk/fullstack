@@ -32,6 +32,10 @@ define([
 			"click #mobile-hamburger": 			"mobileMenu"
 		},
 
+		onShow: function () {
+			this.resizeReposition();
+		},
+
 		navigateToHome: function () {
 			$("#navigation").addClass("home");
 		},
@@ -55,6 +59,28 @@ define([
 					Vent.trigger("GoTo", route, {trigger: true});
 				}, 800)
 			}, 800)
+		},
+
+		resizeReposition: function () {
+			var view = this;
+
+			$(window).bind('resize.mobile-navigation', function() {
+				view.resizing();
+			})
+		},
+
+		resizing: function () {
+			var resizeTimer;
+
+			if (resizeTimer) {
+			    clearTimeout(resizeTimer);   // clear any previous pending timer
+			}
+			 // set new timer
+			resizeTimer = setTimeout(function() {
+			    resizeTimer = null;
+				var height = $("#mobile-navigation").height();
+				$("#mobile-navigation").css({"margin-top": height / -2});
+			}, 50);
 		},
 
 		index: function () {

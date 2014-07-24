@@ -23,6 +23,7 @@ define([
 		initialize: function () {
 			Vent.on('GoTo', this.listenToEvents, this);
 			this.currentView = window.location.hash.split("/")[1].toLowerCase().trim();
+			this.listenToEvents(window.location.hash);
 		},
 
 		onShow: function () {
@@ -34,14 +35,19 @@ define([
 		},
 
 		resizeReposition: function () {
+			var resizeTimer;
 			$(window).bind('resize.orange', function() {
-				var width = $(window).width();
-				if ( width <= 1024 ) {
-					$(".orange-description-text-2").css({"margin-left": width / -2});
+				if (resizeTimer) {
+				    clearTimeout(resizeTimer);   // clear any previous pending timer
+				}
+				 // set new timer
+				resizeTimer = setTimeout(function() {
+				    resizeTimer = null;
+					var width = $(".orange-description-text").outerWidth();
 					$(".orange-description-text").css({"margin-left": width / -2});
 					var height = $(".orange-description-text").outerHeight();
 					$("#orange-description").height(height);
-				}
+				}, 50);
 			})
 		},
 
@@ -72,6 +78,7 @@ define([
 
 
 		hideOrange: function () {
+			console.log("hiding orange")
 			$(".orange-description-text").removeClass("in").removeClass("in-up");
 			$(".orange-description-text").addClass("out-up");
 			$("#orange-description").height(0);
