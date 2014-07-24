@@ -69,7 +69,6 @@ define([
 		    } else if (routeID !== "index" && this.previousRoute === "index") {
 		    	this.navigateFromHome();
 		    } else {
-		    	console.log(routeID)
 		    	this.positionSelectorBar(routeID);
 		    }
 
@@ -89,7 +88,6 @@ define([
 
 			//resize and position correctly before showing
 			var route = window.location.hash.split("/")[1].toLowerCase();
-			console.log(route)
 		    if (route.length < 1 ) route = "index";
 			view.positionSelectorBar(route);
 
@@ -103,7 +101,6 @@ define([
 
 
 		positionSelectorBar: function (routeID) {
-			console.log(routeID)
 			var leftPosition = $("#link-" + routeID).parent().position().left;
 		    var width = $("#link-" + routeID).parent().width();
 		    

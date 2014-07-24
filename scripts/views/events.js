@@ -22,15 +22,30 @@ define([
 		},
 
 		initialize: function () {
-			
+			Vent.bind("RemoveView", this.removeView);
 		},
 
 		onShow: function () {
-			this.equalizeHeights();
+			var view = this;
+
+			view.equalizeHeights();
+
+			setTimeout(function(){
+				view.showEvents();
+			}, 100)
 		},
 
 		onClose: function () {
 			$(window).unbind("resize.event-blocks");
+		},
+
+		showEvents: function () {
+			var list = this.$(".events .block");
+			$.each(list, function(i, el){
+			    setTimeout(function(){
+			       $(el).addClass("show");
+			    },( i * 100 ));
+			});
 		},
 
 		equalizeHeights: function () {
@@ -67,6 +82,13 @@ define([
 		event: function (target) {
 			var route = $(target.currentTarget).attr("data-route");
 			Vent.trigger("GoTo", "#!/events/" + route, {trigger: true});
+		},
+
+		removeView: function () {
+			$("#events .content").addClass("close-view");
+			setTimeout(function(){
+				Vent.trigger("ViewOut");
+			}, 600)
 		}
 
 		

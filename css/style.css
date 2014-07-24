@@ -67,6 +67,14 @@ body {
 	font-smoothing: antialiased;
 }
 
+#orange-description,
+#page {
+	-webkit-transform: translateZ();
+	-ms-transform: translateZ();
+	-o-transform: translateZ();
+	transform: translateZ();
+}
+
 .clearfix:after {
     content: ".";
     display: block;
@@ -176,6 +184,7 @@ p {
 	transition: opacity 0.6s ease;
 }
 
+.map.close-view,
 .content.close-view {
 	opacity: 0;
 }
@@ -992,6 +1001,33 @@ a.apply {
 	font-family: "latohairline", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+#careers a.apply,
+#careers p,
+#careers h2 {
+	opacity: 0;
+	-webkit-transform: translateY(50px);
+     -moz-transform: translateY(50px);
+      -ms-transform: translateY(50px);
+       -o-transform: translateY(50px);
+          transform: translateY(50px);
+	-webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
+	-moz-transition: opacity 0.6s ease, -moz-transform 0.6s ease;
+	-ms-transition: opacity 0.6s ease, -ms-transform 0.6s ease;
+	-o-transition: opacity 0.6s ease, -o-transform 0.6s ease;
+	transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#careers a.apply.show,
+#careers p.show,
+#careers h2.show {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
 
 
 /* ------------------------------------------------
@@ -1019,6 +1055,26 @@ a.apply {
 	width: 50%;
 	padding: 20px;
 	float: left;
+	opacity: 0;
+	-webkit-transform: translateY(50px);
+     -moz-transform: translateY(50px);
+      -ms-transform: translateY(50px);
+       -o-transform: translateY(50px);
+          transform: translateY(50px);
+	-webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
+	-moz-transition: opacity 0.6s ease, -moz-transform 0.6s ease;
+	-ms-transition: opacity 0.6s ease, -ms-transform 0.6s ease;
+	-o-transition: opacity 0.6s ease, -o-transform 0.6s ease;
+	transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#events .block.show {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
 }
 
 #events > div .block:nth-child(odd) {padding-left: 0;}
@@ -1161,6 +1217,35 @@ a.apply {
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+#event .map,
+#event .content > p,
+#event .content h1,
+#event .content > div {
+	opacity: 0;
+	-webkit-transform: translateY(50px);
+     -moz-transform: translateY(50px);
+      -ms-transform: translateY(50px);
+       -o-transform: translateY(50px);
+          transform: translateY(50px);
+	-webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
+	-moz-transition: opacity 0.6s ease, -moz-transform 0.6s ease;
+	-ms-transition: opacity 0.6s ease, -ms-transform 0.6s ease;
+	-o-transition: opacity 0.6s ease, -o-transform 0.6s ease;
+	transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#event .map.show,
+#event .content > p.show,
+#event .content h1.show,
+#event .content > div.show {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
 
 
 /* ------------------------------------------------
@@ -1254,6 +1339,29 @@ a.apply {
 	color: #777777;
 	margin: 0 0 20px;
 	max-width: 600px;
+}
+
+.case-study .content > div {
+	opacity: 0;
+	-webkit-transform: translateY(50px);
+     -moz-transform: translateY(50px);
+      -ms-transform: translateY(50px);
+       -o-transform: translateY(50px);
+          transform: translateY(50px);
+	-webkit-transition: opacity 0.6s ease, -webkit-transform 0.6s ease;
+	-moz-transition: opacity 0.6s ease, -moz-transform 0.6s ease;
+	-ms-transition: opacity 0.6s ease, -ms-transform 0.6s ease;
+	-o-transition: opacity 0.6s ease, -o-transform 0.6s ease;
+	transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.case-study .content > div.show {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
 }
 
 /* ------------------------------------------------

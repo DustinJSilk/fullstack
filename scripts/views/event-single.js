@@ -1,8 +1,9 @@
 define([
 	"app",
 	"marionette",
-	"text!templates/event.html"
-	], function (App, Marionette, EventTemplate) {
+	"text!templates/event.html",
+	"vent"
+	], function (App, Marionette, EventTemplate, Vent) {
 
 	var EventsView = Marionette.ItemView.extend({
 
@@ -26,11 +27,25 @@ define([
 		},
 
 		initialize: function () {
-			
+			Vent.bind("RemoveView", this.removeView);
 		},
 
 		onShow: function () {
-			this.showMap();
+			var view = this;
+
+			setTimeout(function(){
+				view.showContent();
+			}, 100)
+		},
+
+		showContent: function () {
+			var list = this.$(".content").children();
+			list.push($(".map"))
+			$.each(list, function(i, el){
+			    setTimeout(function(){
+			       $(el).addClass("show");
+			    },( i * 100 ));
+			});
 		},
 
 		showMap: function () {
@@ -69,6 +84,14 @@ define([
 					return data;
 					break;
 			}
+		},
+
+		removeView: function () {
+			$("#event .content").addClass("close-view");
+			$(".map").removeClass("show")
+			setTimeout(function(){
+				Vent.trigger("ViewOut");
+			}, 600)
 		}
 		
 

@@ -32,6 +32,10 @@ require.config({
 
 require([ "app"], function(App) {
 
+    if (window.location.hash.length < 3) {
+        window.location.hash = "#!/";
+    }
+
     App.start();
 
 

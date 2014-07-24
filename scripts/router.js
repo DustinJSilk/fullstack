@@ -3,8 +3,6 @@ define(["marionette", "controller", "vent" ], function (Marionette, Controller, 
 	var AppRouter = Marionette.AppRouter.extend({
 		
 		appRoutes: {
-			"" : 						"index",
-			"!" : 						"index",
 			"!/" : 						"index",
 			"!/index": 					"index",
 			"!/about": 					"about",
@@ -35,17 +33,27 @@ define(["marionette", "controller", "vent" ], function (Marionette, Controller, 
                 App.mobileNavigation.show(new MobileNavigationView());
                 App.orangeDescription.show(new OrangeDescriptionView());
             })
+
+            if (window.location.hash && window.location.hash.length > 2){
+            	this.curRoute = "#!/" + window.location.hash.split("/")[1].toLowerCase();
+            } else {
+            	this.curRoute = "#!/";
+            }
+            
+
 		},
 
         GoTo: function (route, args) {
     		$('body').removeClass("menu");
-    		this.route = route;
-    		this.args = args;
-    		Vent.trigger("RemoveView");
+    		if (this.curRoute !== route) {
+    			this.curRoute = route;
+	    		this.args = args;
+	    		Vent.trigger("RemoveView");
+    		}
         },
 
         ViewOut: function () {
-        	this.navigate(this.route, this.args);
+        	this.navigate(this.curRoute, this.args);
         }
 
 

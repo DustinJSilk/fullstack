@@ -82,7 +82,7 @@ define([
 		},
 
 		fullstackEvents: function () {
-			this.navigateTo("#!/fullstack-events");
+			this.navigateTo("#!/events");
 		},
 
 		careers: function () {

@@ -23,7 +23,7 @@ define([
 		},
 
 		initialize: function () {
-
+			Vent.bind("RemoveView", this.removeView);
 		},
 
 		onClose: function () {
@@ -61,6 +61,13 @@ define([
     				Vent.trigger("GoTo", "#!/contact", {trigger: true});
     			}, 300)
         	});
+		},
+
+		removeView: function () {
+			$("#home .content").addClass("close-view");
+			setTimeout(function(){
+				Vent.trigger("ViewOut");
+			}, 600)
 		}
 
 	});

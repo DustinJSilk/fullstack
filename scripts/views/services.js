@@ -29,7 +29,7 @@ define([
 			var view = this;
 
 			setTimeout(function(){
-				view.showFirstSection();
+				view.showContent(0);
 				view.checkScrolling();
 			}, 100)
 		},
@@ -59,15 +59,6 @@ define([
 
 				}				
 				
-			});
-		},
-
-		showFirstSection: function () {
-			var list = this.$(".content").eq(0).children();
-			$.each(list, function(i, el){
-			    setTimeout(function(){
-			       $(el).addClass("show");
-			    },( i * 100 ));
 			});
 		},
 

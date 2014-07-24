@@ -69,9 +69,10 @@ define(["app"], function (App) {
         },
 
         notFound: function () {
-            require([ "app", "views/index"], function (App, IndexView) {
-                App.page.show(new IndexView())
-            })
+            console.log("ROUTE NOT FOUND")
+            // require([ "app", "views/index"], function (App, IndexView) {
+            //     App.page.show(new IndexView())
+            // })
         }
 
     }
