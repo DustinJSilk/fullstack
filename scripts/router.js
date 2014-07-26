@@ -55,6 +55,8 @@ define(["marionette", "controller", "vent" ], function (Marionette, Controller, 
         ViewOut: function () {
         	this.navigate(this.curRoute, this.args);
         }
+		
+		
 
 
 	});
