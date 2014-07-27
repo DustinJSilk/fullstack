@@ -224,9 +224,22 @@ body.show-menu .perspective-container {
 	Navigation
    --------------------------------------------- */
 
+
+
+#navigation {
+	position: relative;
+}
+
+#navigation .wrapper,
+#navigation .content,
+#navigation > div {
+	height: 100%;
+}
+
 #navigation .content {
 	max-width: 1064px;
 	padding: 0 20px;
+	height: 121px;
 }
 
 #navigation .logo {
@@ -288,6 +301,7 @@ body.show-menu .perspective-container {
 	margin: 0 auto;
 	padding: 140px 20px 108px;
 	display: none;
+	position: absolute;
 }
 
 #navigation .nav-welcome img {
@@ -305,17 +319,30 @@ body.show-menu .perspective-container {
 }
 
 
-
+.nav-bar {
+	position: absolute;
+	width: 100%;
+}
 
 
 /* 
 	Home navigation VS other navigation - transitions
 */
 
-#navigation.home {
+#navigation .bg {
 	background-image: url('../img/capetown.jpg');
 	background-position: center center;
 	background-size: cover;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: 0;
+	-webkit-transition: opacity 1s ease 0.4s;
+	-o-transition: opacity 1s ease 0.4s;
+	transition: opacity 1s ease 0.4s;
 }
 
 #navigation.home .logo {
@@ -335,6 +362,53 @@ body.show-menu .perspective-container {
 	display: block;
 }
 
+/*#navigation.transition {
+	height: 0;
+}*/
+
+/*#navigation.transition {
+	-webkit-transform: translateY(-122px);
+	-ms-transform: translateY(-122px);
+	-o-transform: translateY(-122px);
+	transform: translateY(-122px);
+}*/
+
+
+#navigation.transitionHome .nav-bar {
+	-webkit-animation: transitionHome-navBar 0.6s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards; 
+}
+
+@-webkit-keyframes transitionHome-navBar {
+    0% {
+    	top: 0px;
+    }
+    100% {
+    	top: -122px;
+    }
+}
+
+
+#navigation.transitionHome {
+ 	-webkit-animation: transitionHome-height 1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode:forwards; 
+}
+
+@-webkit-keyframes transitionHome-height {
+    0% {
+    	height: 122px;
+    }
+    100% {
+    	height: 687px;
+    }
+}
+
+
+#navigation.transitionHome .bg {
+	opacity: 1;
+}
 
 /* ------------------------------------------------
 	Mobile Navigation
@@ -704,7 +778,6 @@ body.show-menu .perspective-container {
 /* Home contact */
 
 .home-contact {
-	overflow: auto;
 }
 
 .home-contact h2 {

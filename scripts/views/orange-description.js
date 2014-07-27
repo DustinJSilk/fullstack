@@ -1,20 +1,20 @@
 define([
 	"app",
 	"marionette",
-	"text!templates/orange-description.html",
 	"vent"
-	], function (App, Marionette, OrangeDescriptionTemplate, Vent) {
+	], function (App, Marionette, Vent) {
 
 
 	var OrangeDescriptionView = Marionette.ItemView.extend({
 
 		attributes: {
+			class: ".orange-description-text"
 		},
 
 		tagName: "div",
 
-		template: function(data) {
-			return _.template(OrangeDescriptionTemplate);
+		template: function () {
+			return "";
 		},
 
 		events: {
@@ -23,13 +23,13 @@ define([
 		initialize: function () {
 			Vent.on('GoTo', this.listenToEvents, this);
 			this.currentView = window.location.hash.split("/")[1].toLowerCase().trim();
-			this.listenToEvents(window.location.hash);
 		},
 
 		onShow: function () {
 			if (this.currentView !== "" && this.currentView !== "index") {
 				this.showOrange(this.currentView);
 			}
+			
 
 			this.resizeReposition();
 		},
@@ -52,7 +52,6 @@ define([
 		},
 
 		listenToEvents: function (route, args) {
-
 			//Get the new route
 		    var routeID = route.split("/")[1].toLowerCase();
 		    if (routeID.length < 1 ) routeID = "index";
@@ -78,7 +77,6 @@ define([
 
 
 		hideOrange: function () {
-			console.log("hiding orange")
 			$(".orange-description-text").removeClass("in").removeClass("in-up");
 			$(".orange-description-text").addClass("out-up");
 			$("#orange-description").height(0);
@@ -99,6 +97,9 @@ define([
 			if ( width < 1024 ) {
 				$(".orange-description-text").css({"margin-left": width / -2});
 			}
+
+			//if orange text doesnt exist - create it quick
+			if ($(".orange-description-text").length < 1) $("#orange-description div").append("<div class='orange-description-text' />");
 
 			//set new text before getting height
 			$(".orange-description-text").html(this.getNewText(route));
@@ -128,6 +129,9 @@ define([
 			var newText = this.getNewText(route);
 			var newElement = "<div class='orange-description-text-2 in'" + style + ">" + newText + "</div>";
 
+			//if orange text doesnt exist - create it quick
+			if ($(".orange-description-text").length < 1) $("#orange-description div").append("<div class='orange-description-text' />");
+		
 			//animate out old text
 			$(".orange-description-text").removeClass("in").removeClass("in-up");
 			$(".orange-description-text").addClass("out");
@@ -148,7 +152,6 @@ define([
 
 
 		getNewText: function (route) {
-
 			var h1 = "", h2 = "", title;
 			switch (route) {
 

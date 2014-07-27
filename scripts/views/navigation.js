@@ -9,7 +9,6 @@ define([
 	var NavigationView = Marionette.ItemView.extend({
 
 		attributes: {
-			id: "nav-bar"
 		},
 
 		tagName: "div",
