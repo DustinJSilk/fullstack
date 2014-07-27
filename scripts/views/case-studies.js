@@ -22,11 +22,16 @@ define([
 		},
 
 		initialize: function () {
-			Vent.bind("RemoveView", this.removeView);
+		},
+
+		onClose: function () {
+			Vent.unbind("RemoveView");
 		},
 
 		onShow: function () {
 			var view = this;
+
+			Vent.bind("RemoveView", this.removeView);
 
 			setTimeout(function(){
 				view.showContent(0);
@@ -47,10 +52,15 @@ define([
 					var windowScroll = $(window).scrollTop();
 					var offsetDistance = view.$('.content').eq(i).offset().top;
 					var isntVisible = !view.$('.content').eq(i).hasClass("shown");
+					var isntColored = view.$('section').eq(i).hasClass("color-change");
 
 					if ( (windowScroll > (offsetDistance - windowHeight + appearHeight) &&  isntVisible) 
 						|| ( windowScroll + windowHeight > htmlHeight - 100) ) {
 						view.showContent(i);
+					}
+
+					if ( windowScroll > (offsetDistance - windowHeight + appearHeight - 100) &&  isntColored )   {
+						view.$('section').eq(i).removeClass("color-change");
 					}
 
 				}				
@@ -60,6 +70,8 @@ define([
 
 		showContent: function (contentNumber) {
 			var list = this.$(".content").eq(contentNumber).children();
+
+			$('section').eq(contentNumber).find(".case-study-image").eq(0).addClass("show")
 			$.each(list, function(i, el){
 			    setTimeout(function(){
 			       $(el).addClass("show");
@@ -69,7 +81,7 @@ define([
 		},
 
 		removeView: function () {
-			$("#case-studies .content").addClass("close-view");
+			$("#case-studies .wrapper").addClass("close-view");
 			setTimeout(function(){
 				Vent.trigger("ViewOut");
 			}, 600)

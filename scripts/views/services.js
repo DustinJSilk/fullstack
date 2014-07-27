@@ -22,20 +22,22 @@ define([
 		},
 
 		initialize: function () {
-			Vent.bind("RemoveView", this.removeView);
+		},
+
+		onClose: function () {
+			Vent.unbind("RemoveView");
+			$(window).unbind("scroll");
 		},
 
 		onShow: function () {
 			var view = this;
 
+			Vent.bind("RemoveView", this.removeView);
+
 			setTimeout(function(){
 				view.showContent(0);
 				view.checkScrolling();
 			}, 100)
-		},
-
-		onClose: function () {
-			$(window).unbind("scroll");
 		},
 
 		checkScrolling: function () {
@@ -51,10 +53,15 @@ define([
 					var windowScroll = $(window).scrollTop();
 					var offsetDistance = view.$('.content').eq(i).offset().top;
 					var isntVisible = !view.$('.content').eq(i).hasClass("shown");
+					var isntColored = view.$('section').eq(i).hasClass("color-change");
 
 					if ( (windowScroll > (offsetDistance - windowHeight + appearHeight) &&  isntVisible) 
 						|| ( windowScroll + windowHeight > htmlHeight - 100) ) {
 						view.showContent(i);
+					}
+
+					if ( windowScroll > (offsetDistance - windowHeight + appearHeight - 100) &&  isntColored )   {
+						view.$('section').eq(i).removeClass("color-change");
 					}
 
 				}				
@@ -73,7 +80,7 @@ define([
 		},
 
 		removeView: function () {
-			$("#services .content").addClass("close-view");
+			$("#services .wrapper").addClass("close-view");
 			setTimeout(function(){
 				Vent.trigger("ViewOut");
 			}, 600)

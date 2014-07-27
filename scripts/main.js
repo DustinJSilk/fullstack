@@ -4,6 +4,8 @@ require.config({
         "jquery":  "lib/jquery",
         "underscore": "lib/underscore",
         "backbone": "lib/backbone",
+        "backbonevalidation": 'lib/backbone-validation',
+		"googleanalytics": "lib/backbone.analytics",
         "radio": "lib/backbone.radio.min",
         "marionette": 'lib/marionette',
         "templates": "../templates",
@@ -17,6 +19,14 @@ require.config({
         backbone: {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone'
+        },
+        backbonevalidation: {
+            deps: ['backbone'],
+            exports: 'Validation'
+        },
+		googleanalytics: {
+            deps: ['underscore', 'backbone', 'jquery'],
+            exports: 'Googleanalytics'
         },
         radio: {
             deps: ['underscore', 'backbone', 'jquery'],

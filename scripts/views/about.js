@@ -22,14 +22,20 @@ define([
 		},
 
 		initialize: function () {
-			Vent.bind("RemoveView", this.removeView);
+		},
+
+		onClose: function () {
+			Vent.unbind("RemoveView");
 		},
 
 		onShow: function () {
 			var view = this;
 
+			Vent.bind("RemoveView", this.removeView);
+
 			setTimeout(function(){
-				$(".about-copy").addClass("show")
+				$(".about-title").addClass("show");
+				$(".about-copy").addClass("show");
 			}, 100)
 
 			setTimeout(function(){
@@ -46,7 +52,7 @@ define([
 		},
 
 		removeView: function () {
-			$("#about .content").addClass("close-view");
+			$("#about").addClass("close-view");
 			setTimeout(function(){
 				Vent.trigger("ViewOut");
 			}, 600)

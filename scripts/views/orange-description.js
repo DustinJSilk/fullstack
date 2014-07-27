@@ -7,8 +7,11 @@ define([
 
 	var OrangeDescriptionView = Marionette.ItemView.extend({
 
+
+		orangeIndex: 1,
+
 		attributes: {
-			class: ".orange-description-text"
+			class: "orange-description-text 1"
 		},
 
 		tagName: "div",
@@ -28,13 +31,16 @@ define([
 		onShow: function () {
 			if (this.currentView !== "" && this.currentView !== "index") {
 				this.showOrange(this.currentView);
+			} else {
+				$("#orange-description").hide();
 			}
 			
-
 			this.resizeReposition();
 		},
 
 		resizeReposition: function () {
+			var view = this;
+
 			var resizeTimer;
 			$(window).bind('resize.orange', function() {
 				if (resizeTimer) {
@@ -43,15 +49,21 @@ define([
 				 // set new timer
 				resizeTimer = setTimeout(function() {
 				    resizeTimer = null;
-					var width = $(".orange-description-text").outerWidth();
-					$(".orange-description-text").css({"margin-left": width / -2});
-					var height = $(".orange-description-text").outerHeight();
-					$("#orange-description").height(height);
+					view.resize();
 				}, 50);
 			})
 		},
 
+		resize: function () {
+			var width = $(".orange-description-text").outerWidth();
+			$(".orange-description-text").css({"margin-left": width / -2});
+			var height = $(".orange-description-text").outerHeight();
+			$("#orange-description").height(height);
+		},
+
 		listenToEvents: function (route, args) {
+			var view = this;
+
 			//Get the new route
 		    var routeID = route.split("/")[1].toLowerCase();
 		    if (routeID.length < 1 ) routeID = "index";
@@ -61,11 +73,11 @@ define([
 		    if ( routeID === "index" ) {
 		    	this.hideOrange();
 
-
 		    //if its routing from index to another view, show the orange
 		    } else if ( this.currentView === "index" || this.currentView.length === 0) {
-		    	this.showOrange(routeID);
-
+		    	setTimeout(function(){
+		    		view.showOrange(routeID);
+		    	}, 2400)
 
 		    //Otherwise animate from one title to another
 		    } else {
@@ -77,16 +89,12 @@ define([
 
 
 		hideOrange: function () {
-			$(".orange-description-text").removeClass("in").removeClass("in-up");
-			$(".orange-description-text").addClass("out-up");
-			$("#orange-description").height(0);
-			setTimeout(function(){
-				$("#orange-description").hide();
-			}, 400)
+			$("#orange-description").fadeOut(400);
 		},
 
 
 		showOrange: function (route) {
+			var view = this;
 
 			$("#orange-description").height(0);
 			$("#orange-description").show();
@@ -94,22 +102,22 @@ define([
 			//make responsive
 			var width = $(window).width();
 			var style = "";
-			if ( width < 1024 ) {
-				$(".orange-description-text").css({"margin-left": width / -2});
-			}
+
+			view.resize();
+
 
 			//if orange text doesnt exist - create it quick
-			if ($(".orange-description-text").length < 1) $("#orange-description div").append("<div class='orange-description-text' />");
+			if ($(".orange-description-text." + this.orangeIndex).length < 1) $("#orange-description div").append("<div class='orange-description-text " + this.orangeIndex + "' />");
 
 			//set new text before getting height
-			$(".orange-description-text").html(this.getNewText(route));
+			$(".orange-description-text." + this.orangeIndex).html(this.getNewText(route));
 			
 			//get orange height
-			var height = $(".orange-description-text").outerHeight();
+			var height = $(".orange-description-text." + this.orangeIndex).outerHeight();
 
 			//start animating in new text
-			$(".orange-description-text").removeClass("out").removeClass("out-up");
-			$(".orange-description-text").addClass("in-up");
+			$(".orange-description-text." + this.orangeIndex).removeClass("out").removeClass("out-up");
+			$(".orange-description-text." + this.orangeIndex).addClass("in-up");
 
 			//animate height
 			$("#orange-description").height(height);
@@ -117,36 +125,36 @@ define([
 
 
 		changeOrange: function (route) {
+			var view = this;
 
 			//make responsive
 			var width = $(window).width();
 			var style = "";
-			if ( width < 1024 ) {
-				style = "style='margin-left: " + width / -2 + "px;'";
-			}
+			
+			view.resize();
 
 			//create new text
 			var newText = this.getNewText(route);
-			var newElement = "<div class='orange-description-text-2 in'" + style + ">" + newText + "</div>";
+			var newElement = "<div class='orange-description-text in " + (this.orangeIndex + 1) + "'" + style + ">" + newText + "</div>";
 
 			//if orange text doesnt exist - create it quick
-			if ($(".orange-description-text").length < 1) $("#orange-description div").append("<div class='orange-description-text' />");
+			if ($(".orange-description-text." + this.orangeIndex).length < 1) $("#orange-description div").append("<div class='orange-description-text " + this.orangeIndex + "' />");
 		
 			//animate out old text
-			$(".orange-description-text").removeClass("in").removeClass("in-up");
-			$(".orange-description-text").addClass("out");
+			$(".orange-description-text." + this.orangeIndex).removeClass("in").removeClass("in-up");
+			$(".orange-description-text." + this.orangeIndex).addClass("out");
 
 			//animate in new text
-			$(".orange-description-text").parent().append(newElement);
+			$(".orange-description-text." + this.orangeIndex).parent().append(newElement);
 
 			//set new height
-			var height = $(".orange-description-text-2").outerHeight();
+			var height = $(".orange-description-text." + (this.orangeIndex + 1)).outerHeight();
 			$("#orange-description").height(height);
 
 			//remove old text
 			setTimeout(function(){
-				$(".orange-description-text").remove();
-				$(".orange-description-text-2").addClass("orange-description-text").removeClass("orange-description-text-2");
+				$(".orange-description-text." + view.orangeIndex).remove();
+				view.orangeIndex ++;
 			}, 400)
 		},
 
@@ -166,7 +174,7 @@ define([
 
 		    	case "services": 
 		    		h1 = "Services";
-		    		h2 = "Short copy test";
+		    		h2 = "NEED COPY";
 		    		break;
 
 		    	case "clients": 

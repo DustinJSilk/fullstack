@@ -18,15 +18,20 @@ define([
 		},
 
 		events: {
-
+			"click .apply" : "showForm"
 		},
 
 		initialize: function () {
-			Vent.bind("RemoveView", this.removeView);
+		},
+
+		onClose: function () {
+			Vent.unbind("RemoveView");
 		},
 
 		onShow: function () {
 			var view = this;
+
+			Vent.bind("RemoveView", this.removeView);
 
 			setTimeout(function(){
 				view.checkScrolling();
@@ -46,10 +51,15 @@ define([
 					var windowScroll = $(window).scrollTop();
 					var offsetDistance = view.$('.content').eq(i).offset().top;
 					var isntVisible = !view.$('.content').eq(i).hasClass("shown");
+					var isntColored = view.$('section').eq(i).hasClass("color-change");
 
 					if ( (windowScroll > (offsetDistance - windowHeight + appearHeight) &&  isntVisible) 
 						|| ( windowScroll + windowHeight > htmlHeight - 100) ) {
 						view.showContent(i);
+					}
+					
+					if ( windowScroll > (offsetDistance - windowHeight + appearHeight - 100) &&  isntColored )   {
+						view.$('section').eq(i).removeClass("color-change");
 					}
 
 				}				
@@ -67,8 +77,12 @@ define([
 			this.$(".content").eq(contentNumber).addClass("shown");
 		},
 
+		showForm: function (e) {
+			$(e.target).closest("section").addClass("show-form");
+		},
+
 		removeView: function () {
-			$("#careers .content").addClass("close-view");
+			$("#careers .wrapper").addClass("close-view");
 			setTimeout(function(){
 				Vent.trigger("ViewOut");
 			}, 600)

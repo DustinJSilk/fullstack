@@ -39,12 +39,21 @@ define([
 		    if (this.previousRoute.length < 1 ) this.previousRoute = "index";
 
 		    if (this.previousRoute === "index") {
-		    	$("#navigation").addClass("home")
+		    	//this.navigateToHome();
+		    	$("#navigation").addClass("initiateHome home")
 		    }
+
 		},
 
 		onShow: function () {
 			var view = this;
+
+			if (this.previousRoute === "index") {
+				setTimeout(function(){
+					view.navigateToHome("initiate");
+				}, 100)
+		    	
+		    }
 
 			//show the orange selector bar
 			setTimeout(function(){
@@ -66,7 +75,7 @@ define([
 		    if (routeID === "index") {
 		    	this.navigateToHome();
 		    } else if (routeID !== "index" && this.previousRoute === "index") {
-		    	this.navigateFromHome();
+		    	this.navigateFromHome(routeID);
 		    } else {
 		    	this.positionSelectorBar(routeID);
 		    }
@@ -118,46 +127,56 @@ define([
 		},
 
 		mobileMenu: function () {
+			Vent.trigger("ShowMobileMenu");
+		},
+
+		navigateToHome: function (showType) {
 			var view = this;
 
-			//animate body out left
-			$('body').addClass("menu show-menu");
-			$('#mobile-navigation').show();
+			//set up welcome message
+			$("#navigation .nav-welcome").addClass("preShow");
 
-			//then show menu list and allow close
+			//hide top bar; show Background
+			$("#navigation").addClass("transitionHome");
+
+			//change top bar layout
 			setTimeout(function(){
-
-				view.animateInMobileMenu();
-
-				//hide on click
-				// $('.perspective-container').bind("click", function(){
-				// 	$('body').removeClass("show-menu");
-				// 	setTimeout(function(){
-				// 		$('body').removeClass("menu");
-				// 	}, 400)
-				// 	$('.perspective-container').unbind("click");
-				// });
-
-			}, 300)
+				$("#navigation").addClass("home");
+				view.positionSelectorBar("index");
+			}, 600)
 			
+			//show top bar and welcome message
+			setTimeout(function(){
+				$("#navigation").addClass("showHome").removeClass("initiateHome");
+				$("#navigation .nav-welcome").addClass("show");
+			}, 2400)
+
 		},
 
-		animateInMobileMenu: function () {
-			var list = $("#mobile-navigation").find("li");
+		navigateFromHome: function (route) {
+			var view = this;
+			
+			$("#navigation").addClass("hideHome");
+			$("#navigation .nav-welcome").removeClass("show");
 
-			$.each(list, function(i, el){
-			    setTimeout(function(){
-			        $(el).addClass("show");
-			    },( i * 50 ));
-			});
-		},
+			//hide bg and menue
+			setTimeout(function(){
+				$("#navigation").addClass("transitionAwayHome").removeClass("transitionHome home showHome");
+				view.positionSelectorBar(route);
+			}, 600)
 
-		navigateToHome: function () {
-			$("#navigation").addClass("home");
-		},
+			//cant remember
+			setTimeout(function(){
+				$("#navigation").addClass("showHome").removeClass("hideHome transitionAwayHome");
+			}, 2000)
 
-		navigateFromHome: function () {
-			$("#navigation").removeClass("home");
+			//So confusing
+			setTimeout(function(){
+				$("#navigation").removeClass("showHome");
+				$("#navigation .nav-welcome").removeClass("preShow");
+			}, 2400)
+			
+
 		},
 
 		index: function () {

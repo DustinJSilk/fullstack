@@ -23,7 +23,7 @@ define([
 		},
 
 		initialize: function () {
-			Vent.bind("RemoveView", this.removeView);
+			
 		},
 
 		onClose: function () {
@@ -32,6 +32,8 @@ define([
 
 		onShow: function () {
 			var view = this;
+			
+			Vent.bind("RemoveView", this.removeView);
 			
 			view.equalizeServices();
 
@@ -76,16 +78,21 @@ define([
 				
 				for ( var i = 0; i < view.$('.content').length; i ++) {
 
-					var appearHeight = $(window).height() / 3;
+					var appearHeight = $(window).height() / 4;
 					var htmlHeight = $('html').height();
 					var windowHeight = $(window).height();
 					var windowScroll = $(window).scrollTop();
 					var offsetDistance = view.$('.content').eq(i).offset().top;
 					var isntVisible = !view.$('.content').eq(i).hasClass("shown");
+					var isntColored = view.$('section').eq(i).hasClass("color-change");
 
 					if ( (windowScroll > (offsetDistance - windowHeight + appearHeight) &&  isntVisible) 
 						|| ( windowScroll + windowHeight > htmlHeight - 100) ) {
 						view.showContent(i);
+					}
+
+					if ( windowScroll > (offsetDistance - windowHeight + appearHeight - 100) &&  isntColored )   {
+						view.$('section').eq(i).removeClass("color-change");
 					}
 
 				}				
@@ -104,10 +111,11 @@ define([
 		},
 
 		removeView: function () {
-			$("#home .content").addClass("close-view");
+			$("#home .wrapper").addClass("close-view");
 			setTimeout(function(){
+				console.log("out")
 				Vent.trigger("ViewOut");
-			}, 600)
+			}, 2500)
 		}
 
 	});

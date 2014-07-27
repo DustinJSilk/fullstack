@@ -27,11 +27,16 @@ define([
 		},
 
 		initialize: function () {
-			Vent.bind("RemoveView", this.removeView);
+		},
+
+		onClose: function () {
+			Vent.unbind("RemoveView");
 		},
 
 		onShow: function () {
 			var view = this;
+
+			Vent.bind("RemoveView", this.removeView);
 
 			setTimeout(function(){
 				view.showContent();
@@ -87,7 +92,7 @@ define([
 		},
 
 		removeView: function () {
-			$("#event .content").addClass("close-view");
+			$("#event .wrapper").addClass("close-view");
 			$(".map").removeClass("show")
 			setTimeout(function(){
 				Vent.trigger("ViewOut");

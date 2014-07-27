@@ -22,11 +22,17 @@ define([
 		},
 
 		initialize: function () {
-			Vent.bind("RemoveView", this.removeView);
+		},
+
+		onClose: function () {
+			$(window).unbind("resize.event-blocks");
+			Vent.unbind("RemoveView");
 		},
 
 		onShow: function () {
 			var view = this;
+
+			Vent.bind("RemoveView", this.removeView);
 
 			view.equalizeHeights();
 
@@ -35,9 +41,6 @@ define([
 			}, 100)
 		},
 
-		onClose: function () {
-			$(window).unbind("resize.event-blocks");
-		},
 
 		showEvents: function () {
 			var list = this.$(".events .block");
@@ -85,7 +88,7 @@ define([
 		},
 
 		removeView: function () {
-			$("#events .content").addClass("close-view");
+			$("#events .wrapper").addClass("close-view");
 			setTimeout(function(){
 				Vent.trigger("ViewOut");
 			}, 600)

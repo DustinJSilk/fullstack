@@ -57,8 +57,8 @@ define(["app"], function (App) {
         },
 
         contact: function () {
-            require([ "app", "views/contact"], function (App, ContactView) {
-                App.page.show(new ContactView())
+            require([ "app", "views/contact", "models/contact"], function (App, ContactView, ContactModel) {
+                App.page.show(new ContactView({model: new ContactModel}))
             })
         },
 

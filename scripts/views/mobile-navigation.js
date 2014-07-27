@@ -22,7 +22,7 @@ define([
 			"click #link-index": 				"index",
 			"click #link-about": 				"about",
 			"click #link-services": 			"services",
-			//"click #link-clients": 				"clients",
+			//"click #link-clients": 			"clients",
 			"click #link-products": 			"products",
 			"click #link-case-studies": 		"caseStudies",
 			"click #link-fullstack-events": 	"fullstackEvents",
@@ -34,6 +34,8 @@ define([
 
 		onShow: function () {
 			this.resizeReposition();
+
+			Vent.bind("ShowMobileMenu", this.showMenu, this);
 		},
 
 		navigateToHome: function () {
@@ -63,7 +65,6 @@ define([
 
 		resizeReposition: function () {
 			var view = this;
-
 			$(window).bind('resize.mobile-navigation', function() {
 				view.resizing();
 			})
@@ -81,6 +82,35 @@ define([
 				var height = $("#mobile-navigation").height();
 				$("#mobile-navigation").css({"margin-top": height / -2});
 			}, 50);
+		},
+
+		showMenu: function () {
+			var view = this;
+
+			//animate body out left
+			$('body').addClass("menu show-menu");
+			$('#mobile-navigation').show();
+
+			//then show menu list and allow close
+			setTimeout(function(){
+				view.animateInMobileMenu();
+			}, 300)
+		},
+
+
+		animateInMobileMenu: function () {
+			//get nav items to animate
+			var list = $("#mobile-navigation").find("li");
+
+			//reposition and resize
+			this.resizing();
+
+			//animate nav items in one by one
+			$.each(list, function(i, el){
+			    setTimeout(function(){
+			        $(el).addClass("show");
+			    },( i * 50 ));
+			});
 		},
 
 		index: function () {

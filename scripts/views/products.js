@@ -22,11 +22,18 @@ define([
 		},
 
 		initialize: function () {
-			Vent.bind("RemoveView", this.removeView);
+
+		},
+
+		onClose: function () {
+			Vent.unbind("RemoveView");
 		},
 
 		onShow: function () {
 			var view  = this;
+
+			Vent.bind("RemoveView", this.removeView, this);
+
 			setTimeout(function(){
 				view.showProducts();
 			}, 100)
@@ -43,7 +50,7 @@ define([
 		},
 
 		removeView: function () {
-			$("#products .content").addClass("close-view");
+			$("#products .wrapper").addClass("close-view");
 			setTimeout(function(){
 				Vent.trigger("ViewOut");
 			}, 600)
