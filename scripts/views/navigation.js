@@ -97,7 +97,8 @@ define([
 			//resize and position correctly before showing
 			var route = window.location.hash.split("/")[1].toLowerCase();
 		    if (route.length < 1 ) route = "index";
-			view.positionSelectorBar(route);
+			view.size(route);
+			$("#nav-selector").css("opacity", "0")
 
 
 			//animate in
@@ -107,15 +108,27 @@ define([
 			
 		},
 
-
-		positionSelectorBar: function (routeID) {
+		size: function (routeID) {
 			var leftPosition = $("#link-" + routeID).parent().position().left;
 		    var width = $("#link-" + routeID).parent().width();
-		    
-		    $("#nav-selector").css({
+		     $("#nav-selector").css({
 		    	"left": leftPosition - 5,
 		    	"width": width + 10
 		    });
+		},
+
+		positionSelectorBar: function (routeID) {
+			var view = this;
+		    
+		    $("#nav-selector").removeClass("show").animate({"opacity": 0}, 400);
+
+		    setTimeout(function() {
+		    	view.size(routeID);
+		    	$("#nav-selector").removeClass("hide").addClass("show");
+		    	setTimeout(function () {
+		    		$("#nav-selector").css("opacity", "")
+		    	}, 400)
+		    }, 800)
 		},
 
 		resizeReposition: function () {

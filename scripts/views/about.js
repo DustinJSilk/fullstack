@@ -22,6 +22,7 @@ define([
 		},
 
 		initialize: function () {
+			$(".preloader").fadeOut(400);
 		},
 
 		onClose: function () {
@@ -41,6 +42,7 @@ define([
 			setTimeout(function(){
 				view.showAboutBlocks();
 			}, 300)
+
 		},
 
 		showAboutBlocks: function () {

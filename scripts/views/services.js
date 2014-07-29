@@ -22,6 +22,7 @@ define([
 		},
 
 		initialize: function () {
+			$(".preloader").fadeOut(400);
 		},
 
 		onClose: function () {
@@ -38,6 +39,7 @@ define([
 				view.showContent(0);
 				view.checkScrolling();
 			}, 100)
+
 		},
 
 		checkScrolling: function () {

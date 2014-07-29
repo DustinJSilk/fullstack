@@ -22,6 +22,7 @@ define([
 		},
 
 		initialize: function () {
+			$(".preloader").fadeOut(400);
 		},
 
 		onClose: function () {
@@ -35,9 +36,13 @@ define([
 
 			setTimeout(function(){
 				view.checkScrolling();
+				view.showContent(0);
 			}, 100)
+
 		},
 
+
+		//The scroll event to control the fade in of elements
 		checkScrolling: function () {
 			var view = this;
 
@@ -45,7 +50,7 @@ define([
 				
 				for ( var i = 0; i < view.$('.content').length; i ++) {
 
-					var appearHeight = $(window).height() / 3;
+					var appearHeight = $(window).height() / 4;
 					var htmlHeight = $('html').height();
 					var windowHeight = $(window).height();
 					var windowScroll = $(window).scrollTop();

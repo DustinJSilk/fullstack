@@ -36,6 +36,7 @@ define([
 			}
 			
 			this.resizeReposition();
+
 		},
 
 		resizeReposition: function () {
@@ -100,11 +101,10 @@ define([
 			$("#orange-description").show();
 			
 			//make responsive
-			var width = $(window).width();
-			var style = "";
+			var width = $("#orange-description").width();
+			var style = "style='margin-left: " + width / -2 + "px;'";
 
 			view.resize();
-
 
 			//if orange text doesnt exist - create it quick
 			if ($(".orange-description-text." + this.orangeIndex).length < 1) $("#orange-description div").append("<div class='orange-description-text " + this.orangeIndex + "' />");
@@ -128,9 +128,9 @@ define([
 			var view = this;
 
 			//make responsive
-			var width = $(window).width();
-			var style = "";
-			
+			var width = $("#orange-description").width();
+			var style = "style='margin-left: " + width / -2 + "px;'";
+
 			view.resize();
 
 			//create new text

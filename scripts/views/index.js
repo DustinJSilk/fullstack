@@ -23,7 +23,7 @@ define([
 		},
 
 		initialize: function () {
-			
+			$(".preloader").fadeOut(400);
 		},
 
 		onClose: function () {
@@ -39,7 +39,9 @@ define([
 
 			setTimeout(function(){
 				view.checkScrolling();
-			}, 300)
+				view.showContent(0);
+			}, 3000)
+
 		},
 
 		//Make services blocks all have the same height
@@ -62,15 +64,13 @@ define([
 			});
 		},
 
+		//Contact us button (At the bottom)
 		contactUs: function () {
 			//animate to top then navigate
-    		$('html,body').animate({ scrollTop: 0 }, 800, function(){
-    			setTimeout(function(){
-    				Vent.trigger("GoTo", "#!/contact", {trigger: true});
-    			}, 300)
-        	});
+    		Vent.trigger("GoTo", "#!/contact", {trigger: true});
 		},
 
+		//The scroll event to control the fade in of elements
 		checkScrolling: function () {
 			var view = this;
 
@@ -78,7 +78,7 @@ define([
 				
 				for ( var i = 0; i < view.$('.content').length; i ++) {
 
-					var appearHeight = $(window).height() / 4;
+					var appearHeight = $(window).height() / 5;
 					var htmlHeight = $('html').height();
 					var windowHeight = $(window).height();
 					var windowScroll = $(window).scrollTop();

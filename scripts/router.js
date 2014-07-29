@@ -1,5 +1,4 @@
-define(["marionette", "controller", "vent", /*"googleanalytics"*/], function (Marionette, Controller, Vent, Googleanalytics){
-	
+define(["app", "marionette", "controller", "vent", "preloader", /*"googleanalytics"*/], function (App, Marionette, Controller, Vent, preLoader, Googleanalytics){
 	var AppRouter = Marionette.AppRouter.extend({
 		
 		appRoutes: {
@@ -39,7 +38,6 @@ define(["marionette", "controller", "vent", /*"googleanalytics"*/], function (Ma
             } else {
             	this.curRoute = "#!/";
             }
-            
 
 		},
 
@@ -53,7 +51,20 @@ define(["marionette", "controller", "vent", /*"googleanalytics"*/], function (Ma
         },
 
         ViewOut: function () {
-        	this.navigate(this.curRoute, this.args);
+        	var view = this;
+        	var routeImages = this.curRoute.replace("#!/", "");
+
+        	//Cache images before navigating
+        	App.preloader = new preLoader(App.getPreloaderItems(routeImages), {
+			    pipeline: false,
+			    auto: true,
+			    onComplete: function(loaded, errors){
+			        view.navigate(view.curRoute, view.args);
+			    },
+			    onError: function (src) {
+			    	view.navigate(view.curRoute, view.args);
+			    }
+			});
         }
 		
 		

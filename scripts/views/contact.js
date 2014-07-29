@@ -33,6 +33,8 @@ define([
 					$('#' + attr.toLowerCase()).removeClass("error").addClass("error");
 				}
 		    });
+		    console.log($(".preloader"))
+		    $(".preloader").fadeOut(400);
 		},
 
 		onClose: function () {
@@ -51,6 +53,7 @@ define([
 			setTimeout(function(){
 				view.showContactForm();
 			}, 700)
+
 
 		},
 
