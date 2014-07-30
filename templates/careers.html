@@ -1,5 +1,26 @@
-<div class="wrapper">
+<div class="fs-form-wrap" id="fs-form-wrap">
+	<div class="fs-close"><img src="img/close.png" /></div>
+	<form id="myform" class="fs-form fs-form-full" autocomplete="off">
+		<ol class="fs-fields">
+			<li>
+				<label class="fs-field-label fs-anim-upper" for="q1">What's your name?</label>
+				<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Got a name there, buddy?" required/>
+			</li>
+			<li>
+				<label class="fs-field-label fs-anim-upper" for="q2" >What's your email address?</label>
+				<input class="fs-anim-lower" id="q2" name="q2" type="email" placeholder="info@developer.com" required/>
+			</li>
+			<li>
+				<label class="fs-field-label fs-anim-upper" for="q4">What makes you special?</label>
+				<textarea class="fs-anim-lower" id="q4" name="q4" placeholder="Describe your skills and why we should hire you!"></textarea>
+			</li>
+		</ol><!-- /fs-fields -->
+		<button class="fs-submit" type="submit">Send</button>
+	</form><!-- /fs-form -->
+</div><!-- /fs-form-wrap -->
 
+
+<div class="wrapper">
 	<section class="white color-change">
 		<div class="content">
 			<h2>FULLSTACK Developer</h2>
@@ -9,30 +30,6 @@
 				<div class="img"><img src="img/briefcase-icon.png" /></div>
 				<span class="orange"></span>
 			</a>
-		</div>
-		<div class="apply-form">
-			<div class="content">
-				<form class="contact-form">
-					<div class="form-input first">
-						<input type="text" id="name" name="Name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'"/>
-					</div>
-					<div class="form-input second">
-						<input type="text" id="email" name="Email" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'"/>
-					</div>
-					<div class="form-input third">
-						<input type="text" id="subject" name="Subject" placeholder="Your Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Subject'"/>
-					</div>
-					<div class="form-textarea">
-						<textarea id="message" name="Message" onfocus="if (this.value === 'Your message') this.value = ''" onblur="if (this.value === '') this.value = 'Your message'">Your message</textarea>
-					</div>
-					<div class="form-submit">
-						<button type="button" id="submit-contact">
-							<span class="text">Submit Now</span>
-							<span class="response">Success!</span>
-						</button>
-					</div>
-				</form>
-			</div>
 		</div>
 	</section>
 
@@ -46,30 +43,6 @@
 				<span class="orange"></span>
 			</div>
 		</div>
-		<div class="apply-form">
-			<div class="content">
-				<form class="contact-form">
-					<div class="form-input first">
-						<input type="text" id="name" name="Name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'"/>
-					</div>
-					<div class="form-input second">
-						<input type="text" id="email" name="Email" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'"/>
-					</div>
-					<div class="form-input third">
-						<input type="text" id="subject" name="Subject" placeholder="Your Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Subject'"/>
-					</div>
-					<div class="form-textarea">
-						<textarea id="message" name="Message" onfocus="if (this.value === 'Your message') this.value = ''" onblur="if (this.value === '') this.value = 'Your message'">Your message</textarea>
-					</div>
-					<div class="form-submit">
-						<button type="button" id="submit-contact">
-							<span class="text">Submit Now</span>
-							<span class="response">Success!</span>
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
 	</section>
 
 	<section class="white color-change">
@@ -80,30 +53,6 @@
 				<span class="text">Apply</span>
 				<div class="img"><img src="img/briefcase-icon.png" /></div>
 				<span class="orange"></span>
-			</div>
-		</div>
-		<div class="apply-form">
-			<div class="content">
-				<form class="contact-form">
-					<div class="form-input first">
-						<input type="text" id="name" name="Name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'"/>
-					</div>
-					<div class="form-input second">
-						<input type="text" id="email" name="Email" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'"/>
-					</div>
-					<div class="form-input third">
-						<input type="text" id="subject" name="Subject" placeholder="Your Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Subject'"/>
-					</div>
-					<div class="form-textarea">
-						<textarea id="message" name="Message" onfocus="if (this.value === 'Your message') this.value = ''" onblur="if (this.value === '') this.value = 'Your message'">Your message</textarea>
-					</div>
-					<div class="form-submit">
-						<button type="button" id="submit-contact">
-							<span class="text">Submit Now</span>
-							<span class="response">Success!</span>
-						</button>
-					</div>
-				</form>
 			</div>
 		</div>
 	</section>

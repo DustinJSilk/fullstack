@@ -8,6 +8,7 @@ require.config({
 		"googleanalytics": "lib/backbone.analytics",
         "radio": "lib/backbone.radio.min",
         "marionette": 'lib/marionette',
+        "fullscreenform": 'lib/fullscreenForm',
         "templates": "../templates",
         "text": "lib/text",
         "vent": "vent",
@@ -36,6 +37,10 @@ require.config({
         marionette: {
             deps: ['jquery', 'underscore', 'backbone'],
             exports: 'Marionette'
+        },
+        fullscreenform: {
+            deps: ['jquery'],
+            exports: 'fullscreenform'
         },
         waitSeconds: 45
     }
@@ -106,7 +111,8 @@ require([ "app", "preloader", "router"], function (App, preLoader, AppRouter) {
                 ];
 
         var careers = [
-                    "img/briefcase-icon.png"
+                    "img/briefcase-icon.png",
+                    "img/close.png"
                 ];
 
         var contact = [

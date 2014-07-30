@@ -2,7 +2,9 @@ define([
 	"app",
 	"marionette",
 	"text!templates/careers.html",
-	"vent"
+	"vent",
+	"lib/modernizr.custom",
+	"fullscreenform"
 	], function (App, Marionette, CareersTemplate, Vent) {
 
 	var CareersView = Marionette.ItemView.extend({
@@ -18,7 +20,9 @@ define([
 		},
 
 		events: {
-			"click .apply" : "showForm"
+			"click .apply" : "showForm",
+			"submit #myform" : "submitForm",
+			"click .fs-close" : "hideForm"
 		},
 
 		initialize: function () {
@@ -83,7 +87,12 @@ define([
 		},
 
 		showForm: function (e) {
-			$(e.target).closest("section").addClass("show-form");
+			$("#fs-form-wrap").show();
+			$("body, html").addClass("apply-body");
+
+			this.position = $(e.target).closest(".content").find("h2").text();
+
+			this.initiateFullscreenForm();
 		},
 
 		removeView: function () {
@@ -91,6 +100,55 @@ define([
 			setTimeout(function(){
 				Vent.trigger("ViewOut");
 			}, 600)
+		},
+
+		initiateFullscreenForm: function () {
+			var formWrap = document.getElementById( 'fs-form-wrap' );
+
+			[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
+				new SelectFx( el, {
+					stickyPlaceholder: false,
+					onChange: function(val){
+						document.querySelector('span.cs-placeholder').style.backgroundColor = val;
+					}
+				});
+			} );
+
+			new FForm( formWrap, {
+				onReview : function() {
+					$(document.body).addClass('overview')
+				}
+			} );
+		},
+
+		submitForm: function (event) {
+			event.preventDefault();
+
+			var view = this;
+
+			var data = {
+				name: "name",
+				email: "email",
+				position: this.position,
+				message: "message"
+			};
+
+			$.ajax({
+				type: "POST",
+				url: "api/apply",
+				data: data,
+				success: function () {
+					view.hideForm();
+				}
+			})
+		},
+
+		hideForm: function () {
+			$("#fs-form-wrap").fadeOut(400, function () {
+				$("#myform").attr("class", "fs-form fs-form-full")
+				$("body, html").removeClass("apply-body");
+				$("#myform input, #myform textarea").val("")
+			})
 		}
 
 	});

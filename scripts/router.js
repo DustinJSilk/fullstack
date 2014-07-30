@@ -1,4 +1,4 @@
-define(["app", "marionette", "controller", "vent", "preloader", /*"googleanalytics"*/], function (App, Marionette, Controller, Vent, preLoader, Googleanalytics){
+define(["app", "marionette", "controller", "vent", "preloader", "googleanalytics"], function (App, Marionette, Controller, Vent, preLoader, Googleanalytics){
 	var AppRouter = Marionette.AppRouter.extend({
 		
 		appRoutes: {
