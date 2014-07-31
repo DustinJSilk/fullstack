@@ -250,6 +250,8 @@ body.apply-body {
     overflow: hidden;
 }
 
+
+
 /* ------------------------------------------------
 	Navigation
    --------------------------------------------- */
@@ -1885,11 +1887,11 @@ body.apply-body {
       -ms-transform: translateY(0px);
        -o-transform: translateY(0px);
           transform: translateY(0px);
-	-webkit-transition:  -webkit-transform 0.2s ease;
-	-moz-transition:  -moz-transform 0.2s ease;
-	-ms-transition:  -ms-transform 0.2s ease;
-	-o-transition:  -o-transform 0.2s ease;
-	transition:  transform 0.2s ease;
+    -webkit-transition:  -webkit-transform 0.2s ease;
+    -moz-transition:  -moz-transform 0.2s ease;
+    -ms-transition:  -ms-transform 0.2s ease;
+    -o-transition:  -o-transform 0.2s ease;
+    transition:  transform 0.2s ease;
 }
 
 .apply:hover .text {
@@ -1900,28 +1902,26 @@ body.apply-body {
           transform: translateY(-40px);
 }
 
-.apply .img {
-	position: absolute;
-	left: 50%;
-	margin-left: -10px;
-	bottom: -26px;
-	display: block;
-	z-index: 4;
-	width: 21px;
-	-webkit-transition: bottom 0.2s ease;
-	-moz-transition: bottom 0.2s ease;
-	-ms-transition: bottom 0.2s ease;
-	-o-transition: bottom 0.2s ease;
-	transition: bottom 0.2s ease;
+.apply .text-2 {
+    position: absolute;
+    z-index: 4;
+    display: block;
+    bottom: -26px;
+    color: #fff;
+    width: 100px;
+    left: 50%;
+    margin-left: -50px;
+    -webkit-transition: bottom 0.2s ease;
+    -moz-transition: bottom 0.2s ease;
+    -ms-transition: bottom 0.2s ease;
+    -o-transition: bottom 0.2s ease;
+    transition: bottom 0.2s ease;
 }
 
-.apply .img img{
-	max-width: 100%;
+.apply:hover .text-2 {
+    bottom: 8px;
 }
 
-.apply:hover .img {
-	bottom: 6px;
-}
 
 .apply:hover .orange {
 	opacity: 1;
@@ -2494,60 +2494,61 @@ body.apply-body {
 	float: left;
 }
 
-.form-submit button {
-	border: none;
-	background-color: #f2622a;
-	color: white;
-	width: 100%;
-	border-radius: 2px;
-	overflow: hidden;
-	position: relative;
-	padding: 17px 0;
-	font-size: 14px;
-	font-family: "latoregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+button:not(.fs-continue) {
+    border: none;
+    background-color: #f2622a;
+    color: white;
+    width: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    padding: 17px 0;
+    font-size: 14px;
+    font-family: "latoregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.form-submit button .text {
-	position: relative;
-	z-index: 4;
-	display: block;
-	-webkit-transform: translateY(0px);
+button:not(.fs-continue) .text {
+    position: relative;
+    z-index: 4;
+    display: block;
+    -webkit-transform: translateY(0px);
      -moz-transform: translateY(0px);
       -ms-transform: translateY(0px);
        -o-transform: translateY(0px);
           transform: translateY(0px);
-	-webkit-transition:  -webkit-transform 0.2s ease;
-	-moz-transition:  -moz-transform 0.2s ease;
-	-ms-transition:  -ms-transform 0.2s ease;
-	-o-transition:  -o-transform 0.2s ease;
-	transition:  transform 0.2s ease;
+    -webkit-transition:  -webkit-transform 0.2s ease;
+    -moz-transition:  -moz-transform 0.2s ease;
+    -ms-transition:  -ms-transform 0.2s ease;
+    -o-transition:  -o-transform 0.2s ease;
+    transition:  transform 0.2s ease;
 }
 
-.form-submit button.response .text {
-	-webkit-transform: translateY(-40px);
+button.response:not(.fs-continue) .text {
+    -webkit-transform: translateY(-40px);
      -moz-transform: translateY(-40px);
       -ms-transform: translateY(-40px);
        -o-transform: translateY(-40px);
           transform: translateY(-40px);
 }
 
-.form-submit button .response{
-	position: absolute;
-	left: 50%;
-	margin-left: -75px;
-	bottom: -26px;
-	display: block;
-	z-index: 4;
-	width: 150px;
-	-webkit-transition: bottom 0.2s ease;
-	-moz-transition: bottom 0.2s ease;
-	-ms-transition: bottom 0.2s ease;
-	-o-transition: bottom 0.2s ease;
-	transition: bottom 0.2s ease;
+button:not(.fs-continue) .response{
+    position: absolute;
+    left: 50%;
+    margin-left: -75px;
+    bottom: -26px;
+    display: block;
+    z-index: 4;
+    width: 150px;
+    -webkit-transition: bottom 0.2s ease;
+    -moz-transition: bottom 0.2s ease;
+    -ms-transition: bottom 0.2s ease;
+    -o-transition: bottom 0.2s ease;
+    transition: bottom 0.2s ease;
 }
 
-.form-submit button.response .response {
-	bottom: 18px;
+button.response:not(.fs-continue) .response {
+    bottom: 18px;
 }
 
 
@@ -2756,6 +2757,14 @@ footer .social-links .skype {
 
 
 
+@media only screen and (max-width: 1440px) {
+    
+    .odd .case-study-image-first {
+        top: 260px;
+    }
+
+}
+
 
 @media only screen and (max-width: 1100px) {
 	
@@ -2794,6 +2803,23 @@ footer .social-links .skype {
 		margin-left: -100px;
 	}
 
+    .case-study-image {
+        display: none;
+    }
+    
+    .case-study.even .content,
+    .case-study.even .content .detail p,
+    .case-study.even .content .detail,
+    .case-study.even .content .copy p,
+    .case-study.even .content .title h2,
+    .case-study.even .content > div {
+        text-align: left;
+    }
+    .case-study .content .detail img {
+        float: left;
+    }
+
+   
 }
 
 
@@ -3225,6 +3251,11 @@ footer .social-links .skype {
 
     #navigation .nav-welcome img {
         max-width: 140px;
+    }
+
+    .case-study.odd .content .detail p,
+    .case-study.even .content .detail p {
+         width: 70%;
     }
 }
 

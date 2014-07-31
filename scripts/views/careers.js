@@ -140,7 +140,16 @@ define([
 				url: "api/apply",
 				data: data,
 				success: function () {
-					view.hideForm();
+					$(".fs-submit").addClass("response").find(".response").text("Success!");
+					setTimeout(function () {
+						view.hideForm();
+					}, 1000)
+				}, 
+				error: function () {
+					$(".fs-submit").addClass("response").find(".response").text("Oops, Error!");
+					setTimeout(function () {
+						$(".fs-submit").removeClass("response");
+					}, 2500)
 				}
 			})
 		},

@@ -71,6 +71,7 @@
 	top: 20px;
 	left: 20px;
 	cursor: pointer;
+	z-index: 10;
 }
 
 /* Switch view animation (we hide the current view, switch the view class and show it again) */
@@ -596,11 +597,12 @@ button.fs-continue,
 /* Continue button and submit button */
 button.fs-submit,
 button.fs-continue {
-	padding: 0.6em 80px;
+	padding: 17px 80px;
 	border: 1px solid #fff;
 	border-radius: 7px;
 	font-weight: normal;
 	color: #fff;
+	width: auto;
 }
 
 .fs-form-overview .fs-submit,
@@ -873,3 +875,5 @@ input[type=text]::-ms-clear {
 		transform: translate3d(0,0,0);
 	}
 }
+
+

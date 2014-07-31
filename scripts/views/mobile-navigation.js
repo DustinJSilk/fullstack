@@ -59,6 +59,7 @@ define([
 				$('body').removeClass("show-menu");
 				setTimeout(function(){
 					Vent.trigger("GoTo", route, {trigger: true});
+					$('#mobile-navigation').hide();
 				}, 800)
 			}, 800)
 		},
