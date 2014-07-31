@@ -89,9 +89,9 @@ define([
 		showForm: function (e) {
 			var scrollTop = $(window).scrollTop();
 
-			$("body, html").addClass("apply-body").css("top", scrollTop * -1);
+			$("body, html").addClass("apply-body")//.css("top", scrollTop * -1);
 
-			$("#fs-form-wrap").fadeIn(400).css("top", scrollTop);
+			$("#fs-form-wrap").fadeIn(400)//.css("top", scrollTop);
 			
 			this.position = $(e.target).closest(".content").find("h2").text();
 			this.initiateFullscreenForm();
