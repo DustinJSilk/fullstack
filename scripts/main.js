@@ -63,23 +63,23 @@ require([ "app", "preloader", "router"], function (App, preLoader, AppRouter) {
     //get items to preload. Because its a small site we can easily define them here.
     // Attach them to the App object and we can grab them to preload when ever we change route.
     App.getPreloaderItems = function (route) {
-        var array;
+        var array = [];
 
         var index = [
                     "img/capetown.jpg",
                     "img/about-icon-left.jpg",
                     "img/about-icon-middle.jpg",
                     "img/about-icon-right.jpg",
-                    "img/services-software.png",
-                    "img/services-systems.png",
-                    "img/services-technology.png",
-                    "img/services-developer.png",
                     "img/clients-brilliant.png",
                     "img/clients-colormedia.png",
                     "img/clients-livefyre.png",
                     "img/clients-nuride.png",
                     "img/clients-open-suse.png",
-                    "img/clients-techcombank.png"
+                    "img/clients-techcombank.png",
+                    "img/services-icon-dev-review.png",
+                    "img/services-icon-software.png",
+                    "img/services-icon-systems.png",
+                    "img/services-icon-tech-audit.png"
                 ];
 
         var about = [
@@ -91,7 +91,7 @@ require([ "app", "preloader", "router"], function (App, preLoader, AppRouter) {
                     "img/services-icon-dev-review.png",
                     "img/services-icon-software.png",
                     "img/services-icon-systems.png",
-                    "img/services-icon-tech-audit.png",
+                    "img/services-icon-tech-audit.png"
                 ];
 
         var products = [];

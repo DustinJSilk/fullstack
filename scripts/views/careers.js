@@ -87,11 +87,13 @@ define([
 		},
 
 		showForm: function (e) {
-			$("#fs-form-wrap").show();
-			$("body, html").addClass("apply-body");
+			var scrollTop = $(window).scrollTop();
 
+			$("body, html").addClass("apply-body").css("top", scrollTop * -1);
+
+			$("#fs-form-wrap").fadeIn(400).css("top", scrollTop);
+			
 			this.position = $(e.target).closest(".content").find("h2").text();
-
 			this.initiateFullscreenForm();
 		},
 
@@ -145,9 +147,14 @@ define([
 
 		hideForm: function () {
 			$("#fs-form-wrap").fadeOut(400, function () {
-				$("#myform").attr("class", "fs-form fs-form-full")
+				$("body, html").css("top", 0);
+				$("#fs-form-wrap").css("top", 0);
+				$("#myform").attr("class", "fs-form fs-form-full");
 				$("body, html").removeClass("apply-body");
-				$("#myform input, #myform textarea").val("")
+				$("#myform input, #myform textarea").val("");
+				$(".fs-current").removeClass("fs-current");
+				$(".fs-progress").width(0);
+				$('.fs-controls').remove();
 			})
 		}
 

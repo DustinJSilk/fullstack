@@ -20,6 +20,7 @@ define([
 
 		events: {
 			"click #contact-us-link": 		"contactUs",
+			"click .services-link" : 		"servicesLink"
 		},
 
 		initialize: function () {
@@ -34,12 +35,13 @@ define([
 			var view = this;
 			
 			Vent.bind("RemoveView", this.removeView);
-			
-			view.equalizeServices();
+
+			$('html,body').animate({ scrollTop: 0 }, 800);
 
 			setTimeout(function(){
 				view.checkScrolling();
 				view.showContent(0);
+				view.equalizeServices();
 			}, 3000)
 
 		},
@@ -49,25 +51,47 @@ define([
 			var that = this;
 
 			var tallestBlock = 0;
+			var childrenHeight = 0;
 
 			$(window).bind("resize.services-blocks", function () {
 				$('.services .block').height("");
 				tallestBlock = 0;
+				childrenHeight = 0;
 
+
+				//check height of blocks
 				for ( var i = 0; i < 4; i ++ ) {
+					
 					var h = $('.services .block').eq(i).height();
+
+					//check height of hover orange text
+					var children = $('.services .block .hover-text').eq(i).children();
+					for (var n = 0; n < 3; n ++) {
+						childrenHeight += children.eq(n).outerHeight(true);
+					};
+
+					h = (childrenHeight < h) ? h : childrenHeight;
+
 					tallestBlock = (tallestBlock < h) ? h : tallestBlock;
+
+					childrenHeight = 0;
+
 				}
 
 				$('.services .block').height(tallestBlock);
-			
 			});
+
+			$(window).resize();
 		},
 
-		//Contact us button (At the bottom)
 		contactUs: function () {
-			//animate to top then navigate
     		Vent.trigger("GoTo", "#!/contact", {trigger: true});
+    		$('html,body').animate({ scrollTop: 0 }, 800);
+		},
+
+		servicesLink: function () {
+			Vent.trigger("GoTo", "#!/services", {trigger: true});
+    		$('html,body').animate({ scrollTop: 0 }, 800);
 		},
 
 		//The scroll event to control the fade in of elements
@@ -113,7 +137,6 @@ define([
 		removeView: function () {
 			$("#home .wrapper").addClass("close-view");
 			setTimeout(function(){
-				console.log("out")
 				Vent.trigger("ViewOut");
 			}, 2500)
 		}

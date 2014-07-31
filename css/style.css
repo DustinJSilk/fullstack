@@ -1430,7 +1430,6 @@ body.apply-body {
 	height: 100%;
 	background-color: #ebebeb;
 	display: block;
-	cursor: pointer;
 	position: relative;
 }
 
@@ -1460,7 +1459,7 @@ body.apply-body {
 }
 
 .services .block .hover-text {
-	display: none;
+	visibility: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1472,7 +1471,7 @@ body.apply-body {
 .services .block .hover-text h3 {
 	color: white;
 	margin: 30px auto 17px;
-	padding: 0 0 15px 0;
+	padding: 0 10px 15px;
 	border-bottom: 2px solid white;
 	display: inline-block;	
 	font-family: "latoregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1498,9 +1497,10 @@ body.apply-body {
 	padding: 8px 50px;
 	color: white;
 	text-decoration: none;
+    cursor: pointer;
 }
 
-.services .block > div:hover .hover-text {display: block;}
+.services .block > div:hover .hover-text {visibility: visible;}
 .services .block > div:hover .orange {opacity: 1;}
 
 
@@ -2798,6 +2798,10 @@ footer .social-links .skype {
 
 
 @media only screen and (max-width: 900px) {
+    
+    #navigation {
+        max-height: 538px;
+    }
 
 	#navigation .nav-list {
 		display: none;
@@ -2806,6 +2810,14 @@ footer .social-links .skype {
 	#navigation .content {
 		height: 108px;
 	}
+
+    #navigation .nav-welcome {
+        padding: 50px 20px 50px;
+    }
+
+    #navigation .nav-welcome p {
+        margin: 40px 0 0;
+    }
 
 	.mobile-hamburger {
 		display: block;
@@ -2836,7 +2848,7 @@ footer .social-links .skype {
 	.flow-center .center-icon {
 		width: 480px;
 	}
-
+    
 	.event-date {
 		position: absolute;
 		left: 20px;
@@ -2844,42 +2856,77 @@ footer .social-links .skype {
 		margin: 0;
 		display: none;
 	}
-
+    
+    .services .block,
 	#events .block {
 		width: 100%;
 		padding: 15px 0;
 		height: auto!important;
 	}
-
+    
+    .services .block .orange,
 	#events > div .block .orange {
 		display: none;
 	}
-
+    
+    .services .block .hover-text,
 	#events .block .hover-text{
 		position: relative;
 		display: block;
+        visibility: visible;
 		text-align: left;
 		float: left;
 	}
-
+    
+    .services div:not(.hover-text) h3,
 	#events div:not(.hover-text) h3 {
 		display: none;
 	}
-
+    
 	#events .block .hover-text h3 {
 		color: #e87649;
 		border-bottom: 2px solid #e87649;
 	}
-
+    
 	#events .block .hover-text p {
-		color: #e87649;
+		color: #979797;
 	}
-
+    
 	#events .block .hover-text a {
 		border: 1px solid #e87649;
 		color: #e87649;
 		margin-left: 20px;
 	}
+
+     .services .block img {
+        display: none;
+    }
+
+    .services .block .hover-text {
+        display: inline;
+    }
+
+    .services .block .hover-text h3 {
+        color: #e87649;
+        border-bottom: 2px solid #e87649;
+        float: left;
+        margin: 30px 20px 17px
+    }
+
+    .services .block .hover-text p {
+        color: #979797;
+        float: left;
+        padding: 0 20px;
+    }
+
+    .services .block .hover-text a{
+        border: 1px solid #e87649;
+        color: #e87649;
+        float: left;
+        margin: 20px;
+    }
+
+
 
 	footer p {
 		text-align: left;
@@ -2966,10 +3013,22 @@ footer .social-links .skype {
 		left: 0%;
 		top: 90px;
 		margin-left: 0px;
-		padding: 140px 20px 108px;
+		padding: 20px 20px 50px;
 		position: absolute;
 		z-index: 2;
 	}
+
+    #navigation {
+        max-height: 458px;
+    }
+
+    #navigation .nav-welcome img {
+        max-width: 150px;
+    }
+
+    #navigation .nav-welcome p {
+        font-size: 22px;
+    }
 }
 
 @media only screen and (max-width: 620px) {
@@ -3112,6 +3171,16 @@ footer .social-links .skype {
 		color: #e87649;
 	}
 
+    #services h2 span {
+        margin: 0 0 0 0px;
+    }
+
+    #services h2 img {
+        display: none;
+    }
+
+
+
 	footer p {
 		text-align: center;
 		padding: 20px 0 0;
@@ -3141,8 +3210,22 @@ footer .social-links .skype {
 }
 
 @media only screen and (max-width: 480px) {
+    
+    .mobile-hamburger {
+        margin: 14px 2px 0 0;
+    }
 
+    #navigation .nav-welcome {
+        padding: 0 20px;
+    }
+    
+    #navigation .nav-welcome p {
+        margin: 30px 0 0;
+    }
 
+    #navigation .nav-welcome img {
+        max-width: 140px;
+    }
 }
 
 @media only screen and (max-width: 400px) {
