@@ -174,12 +174,12 @@ define([
 
 		    	case "services": 
 		    		h1 = "Services";
-		    		h2 = "NEED COPY";
+		    		h2 = "We love to serve our clients. These are the services we happily provide.";
 		    		break;
 
 		    	case "clients": 
 		    		h1 = "Clients";
-		    		h2 = "Long copy test.<br />We provide data products and services<br />and this is how we work/our process<br />and this is how we work/our process";
+		    		h2 = "Our clients are our pride and passion. Discover whose work we are proud to do.";
 		    		break;
 
 		    	case "products": 
