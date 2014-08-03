@@ -2732,7 +2732,7 @@ button.response:not(.fs-continue) .response {
 	padding: 0;
 	background-size: cover;
 	background-position: center center;
-	background-image: url('../img/map.jpg');
+	background-image: url('../img/map.png');
 	-webkit-transition: height 1s ease;
 	-moz-transition: height 1s ease;
 	-ms-transition: height 1s ease;
