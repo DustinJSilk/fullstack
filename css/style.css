@@ -40,6 +40,8 @@
 /* ------------------------------------------------
 	Normalizing and initializing
    --------------------------------------------- */
+   
+a {color:#737373;}
 
 html {
 	width: 100%;
@@ -2429,7 +2431,7 @@ body.apply-body {
 .contact-details {
 	width: 100%;
 	overflow: hidden;
-	margin: 0 0 80px;
+	margin: 0; /*ALG 0 80px;*/
 }
 
 .contact-details .row {

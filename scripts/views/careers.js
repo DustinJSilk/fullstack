@@ -87,14 +87,17 @@ define([
 		},
 
 		showForm: function (e) {
-			var scrollTop = $(window).scrollTop();
+			// This is just to go live. Have a jobs@fullstack.co.za address
+			document.location.href = "mailto:jobs@fullstack.co.za";
+			
+			/*var scrollTop = $(window).scrollTop();
 
 			$("body, html").addClass("apply-body")//.css("top", scrollTop * -1);
 
 			$("#fs-form-wrap").fadeIn(400)//.css("top", scrollTop);
 			
 			this.position = $(e.target).closest(".content").find("h2").text();
-			this.initiateFullscreenForm();
+			this.initiateFullscreenForm();*/
 		},
 
 		removeView: function () {

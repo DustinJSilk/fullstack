@@ -169,7 +169,7 @@ define([
 
 		    	case "about": 
 		    		h1 = "About";
-		    		h2 = "We provide data products and services<br />and this is how we work/our process";
+		    		h2 = "Full Stack is a software company providing data products and services designed to unlock business value, through the delivery of quality software on time at a fixed price.";
 		    		break;
 
 		    	case "services": 
@@ -184,12 +184,12 @@ define([
 
 		    	case "products": 
 		    		h1 = "Products";
-		    		h2 = "For FULLSTACK, products are solutions commonly required. Our approach to products is iterative and in no way shrink wrapped. All our products are built on network services. Our product roll outs require an training, change management and implementation phase. ";
+		    		h2 = "For FULLSTACK, products are solutions commonly required. Our approach to products is iterative and in no way shrink wrapped. All our products are built on network services. Our product roll outs require a training, change management and implementation phase. ";
 		    		break;
 
 		    	case "case-studies": 
 		    		h1 = "Case Studies";
-		    		h2 = "We provide data products and services<br />and this is how we work/our process";
+		    		h2 = "Discover more about how Full Stack delivers high quality software to our clients, in detail.";
 		    		break;
 
 		    	case "events": 
@@ -211,7 +211,7 @@ define([
 
 		    	case "contact": 
 		    		h1 = "Contact";
-		    		h2 = "We provide data products and services<br />and this is how we work/our process";
+		    		h2 = "Get in touch to discuss your software needs, <br /> alternatively feel free to <br /><a target=\"_blank\" href=\"http://www.fullstack.co.za/quoterequest/\" style=\"padding: 10px 70px;	border: 1px solid #fff;	border-radius: 7px;	font-size: 23px; font-weight:bold;	color: white;	text-decoration: none;	display: inline-block;	margin-top: 20px; cursor: pointer;\">Request a Quote</a>";
 		    		break;
 
 		    	case "error": 
