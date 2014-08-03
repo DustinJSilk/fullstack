@@ -1654,7 +1654,7 @@ body.apply-body {
 
 .about-copy {
 	width: 100%;
-	color: #929090;
+	color: #737373;
 	font-size: 18px;
 	line-height: 22px;
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1787,7 +1787,7 @@ body.apply-body {
 }
 
 #services p {
-	color: #929090;
+	color: #737373;
 	font-size: 18px;
 	line-height: 22px;
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1796,7 +1796,7 @@ body.apply-body {
 
 
 #services ul li {
-	color: #929090;
+	color: #737373;
 	font-size: 18px;
 	line-height: 22px;
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1851,7 +1851,7 @@ body.apply-body {
 }
 
 .product p {
-	color: #929090;
+	color: #737373;
 	font-size: 18px;
 	line-height: 22px;
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1896,7 +1896,7 @@ body.apply-body {
 }
 
 #careers p {
-	color: #929090;
+	color: #737373;
 	font-size: 18px;
 	line-height: 22px;
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -2199,7 +2199,7 @@ body.apply-body {
 }
 
 #event p {
-	color: #929090;
+	color: #737373;
 	font-size: 18px;
 	line-height: 22px;
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -2300,7 +2300,7 @@ body.apply-body {
 
 .case-study .content .copy {margin: 0 0 30px 0;}
 .case-study .content .copy p {
-	color: #929090;
+	color: #737373;
 	font-size: 18px;
 	line-height: 22px;
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -2340,13 +2340,13 @@ body.apply-body {
 .case-study .content .detail span {
 	font-size: 16px;
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #777777;
+	color: #737373;
 }
 
 .case-study .content .clause p {
 	font-size: 16px;
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #777777;
+	color: #737373;
 	margin: 0 0 20px;
 	max-width: 600px;
 }
@@ -2476,7 +2476,7 @@ body.apply-body {
 .contact-type p {
 	font-size: 13px;
 	font-family: "latoregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #929090;
+	color: #737373;
 	line-height: 20px;
 }
 
@@ -2506,7 +2506,7 @@ body.apply-body {
 	padding: 10px 15px;
 	font-size: 14px;
 	font-style: italic;
-	color: #929090;
+	color: #737373;
 }
 
 .form-textarea textarea.error,
@@ -2548,7 +2548,7 @@ body.apply-body {
 	font-size: 14px;
 	font-style: italic;
 	resize: none;
-	color: #929090;
+	color: #737373;
 }
 
 .form-submit {
@@ -2616,19 +2616,19 @@ button.response:not(.fs-continue) .response {
 
 
 ::-webkit-input-placeholder {
-   color: #929090;
+   color: #737373;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #929090;
+   color: #737373;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #929090;
+   color: #737373;
 }
 
 :-ms-input-placeholder {  
-   color: #929090; 
+   color: #737373; 
 }
 
 .error::-webkit-input-placeholder {
