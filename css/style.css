@@ -173,21 +173,21 @@ h1 {
 h2 {
 	font-family: "latohairline", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 2.5em;
-	color: #979797;
+	color: #737373;
 	font-weight: normal;
 }
 
 h3 {
 	font-family: "latohairline", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 1.563em;
-	color: #979797;
+	color: #737373;
 	font-weight: normal;
 }
 
 p {
 	font-family: "latolight", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 1.563em;
-	color: #979797;
+	color: #737373;
 }
 
 #page > div,
@@ -2978,7 +2978,7 @@ footer .social-links .skype {
 	}
     
 	#events .block .hover-text p {
-		color: #979797;
+		color: #737373;
 	}
     
 	#events .block .hover-text a {
@@ -3003,7 +3003,7 @@ footer .social-links .skype {
     }
 
     .services .block .hover-text p {
-        color: #979797;
+        color: #737373;
         float: left;
         padding: 0 20px;
     }
