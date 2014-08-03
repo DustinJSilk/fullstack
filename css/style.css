@@ -426,7 +426,7 @@ body.apply-body {
 	width: 100%;
 	max-width: 650px;
 	left: 50%;
-	top: 90px;
+	top: 20px;
 	margin-left: -325px;
 	padding: 140px 20px 108px;
 	opacity: 0;
@@ -2748,7 +2748,7 @@ button.response:not(.fs-continue) .response {
 
 
 footer {
-	background-color: #9ea2a5;
+	background-color: #737373;
 	width: 100%;
 	position: relative;
 	-webkit-transition: height 0.3s ease;
@@ -2806,8 +2806,11 @@ footer .social-links .skype {
 }footer .social-links .facebook {
 	width: 20px;
 	background-position: -68px 0px;
+}footer .social-links .googleplus {
+	width: 37px;
+	background-position: -263px 0px;
 }footer .social-links .linkedin {
-	width: 36px;
+	width: 37px;
 	background-position: 0px 0px;
 }
 
